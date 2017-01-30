@@ -8,34 +8,10 @@ require('onsenui/stylus/blue-basic-theme.styl');
 require('onsenui/css/onsenui.css');
 
 import App from './App';
-// import Test from './Test'
-import scheduleGenral from './scheduleGeneral';
-
-// const rootElement = document.getElementById('app');
-// ReactDOM.render(
-//   <AppContainer>
-//     <App />
-//   </AppContainer>,
-//   rootElement
-// );
-//
-// if (module.hot) {
-//   module.hot.accept('./App', () => {
-//     const NextApp = require('./App').default;
-//     ReactDOM.render(
-//       <AppContainer>
-//          <NextApp />
-//       </AppContainer>,
-//       rootElement
-//     );
-//   });
-// }
 
 ReactDOM.render(
     <div>
         <App />
-        {/*<Test />*/}
     </div>,
-    //title,
     document.getElementById('app')
 );

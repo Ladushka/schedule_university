@@ -1,31 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {Page, Button, Toolbar, Input} from 'react-onsenui';
-import {notification} from 'onsenui';
-import Test from './Test'
 
-// export default class App extends React.Component {
-//   alertPopup() {
-//     notification.alert('This is an Onsen UI alert notification test.');
-//   }
-//
-//   renderToolbar() {
-//     return (
-//       <Toolbar>
-//         <div className='center'>Onsen UI</div>
-//       </Toolbar>
-//     );
-//   }
-//
-//   render() {
-//     return (
-//       <Page renderToolbar={this.renderToolbar}>
-//         <div>Hello World!</div>
-//         <Button onClick={this.alertPopup}>Click Me!</Button>
-//       </Page>
-//     );
-//   }
-// }
+import {Page, Button, Toolbar, Input} from 'react-onsenui';
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -47,10 +23,9 @@ class App extends React.Component {
     }
 
     handleInputChange(event) {
-        //const value = event.target.value
-        const name = event.target.name;
+        //const name = event.target.name;
         this.setState({
-            [name]: event.target.value
+            [event.target.name]: event.target.value
         });
     }
 
@@ -63,7 +38,6 @@ class App extends React.Component {
             },
             body: JSON.stringify(this.state)
         });
-        //alert('Your favorite flavor is: ' + this.state.value);
         event.preventDefault();
     }
 
@@ -72,7 +46,6 @@ class App extends React.Component {
             <Page renderToolbar={this.renderToolbar}>
                 <section style={{textAlign: 'center'}}>
                     <p>
-                        {/*<form className="loginForm" onSubmit={this.handleSubmit}>*/}
                         <Input
                             type="text"
                             name="faculty"
@@ -97,11 +70,9 @@ class App extends React.Component {
                     <p>
                         <Button onClick={this.handleSubmit}>Add Group</Button>
                     </p>
-                    <Test />
                 </section>
             </Page>
         );
     };
-}
-;
+};
 module.exports = App;
