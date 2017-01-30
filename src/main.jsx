@@ -8,6 +8,8 @@ require('onsenui/stylus/blue-basic-theme.styl');
 require('onsenui/css/onsenui.css');
 
 import App from './App';
+// import Test from './Test'
+import scheduleGenral from './scheduleGeneral';
 
 // const rootElement = document.getElementById('app');
 // ReactDOM.render(
@@ -32,7 +34,8 @@ import App from './App';
 ReactDOM.render(
     <div>
         <App />
+        {/*<Test />*/}
     </div>,
     //title,
-    document.getElementById('root')
+    document.getElementById('app')
 );

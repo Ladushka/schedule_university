@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Page, Button, Toolbar, Input} from 'react-onsenui';
 import {notification} from 'onsenui';
+import Test from './Test'
 
 // export default class App extends React.Component {
 //   alertPopup() {
@@ -96,8 +97,7 @@ class App extends React.Component {
                     <p>
                         <Button onClick={this.handleSubmit}>Add Group</Button>
                     </p>
-                    {/*<Input type="submit" value="Login"/>*/}
-                    {/*</form>*/}
+                    <Test />
                 </section>
             </Page>
         );
