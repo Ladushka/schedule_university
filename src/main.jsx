@@ -8,10 +8,10 @@ require('onsenui/stylus/blue-basic-theme.styl');
 require('onsenui/css/onsenui.css');
 
 import App from './App';
-
+import UserType from './rigestration/userType';
 ReactDOM.render(
     <div>
-        <App />
+        <UserType />
     </div>,
     document.getElementById('app')
 );

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Page, Button, Toolbar, Input, List, ListItem} from 'react-onsenui';
 import {notification} from 'onsenui';
 
-class userType extends React.Component {
+class UserType extends React.Component {
     constructor(props) {
         super(props);
 
@@ -51,16 +51,25 @@ class userType extends React.Component {
         )
     }
 
-    render() {
-
+    renderToolbar() {
         return (
-            <List
-                dataSource={this.state.user}
-                renderRow={this.renderRadioRow}
-            />
+            <Toolbar>
+                <div className='center'>Schedule without login</div>
+            </Toolbar>
+        );
+    }
+
+    render() {
+        return (
+            <Page renderToolbar={this.renderToolbar}>
+                <div className='center'>Who are you?</div>
+                <List
+                    dataSource={this.state.user}
+                    renderRow={this.renderRadioRow}/>
+            </Page>
         );
     };
 
 }
 ;
-module.exports = userType;
+module.exports = UserType;
