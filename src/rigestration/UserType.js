@@ -1,7 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {Page, Button, Toolbar, Input, List, ListItem} from 'react-onsenui';
-import {notification} from 'onsenui';
+import {Page, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
+
+import RequestScheduleStudent from  './../student/RequestSchedule'
+import RequestScheduleLecturer from  './../student/RequestSchedule'
 
 class UserType extends React.Component {
     constructor(props) {
@@ -31,6 +32,7 @@ class UserType extends React.Component {
 
     handleItemChange(item) {
         this.setState({selectedItem: item});
+
     };
 
     renderRadioRow(row) {
@@ -62,10 +64,12 @@ class UserType extends React.Component {
     render() {
         return (
             <Page renderToolbar={this.renderToolbar}>
-                <div className='center'>Who are you?</div>
                 <List
                     dataSource={this.state.user}
+                    renderHeader={()=><ListHeader>Who are you?</ListHeader>}
                     renderRow={this.renderRadioRow}/>
+                <RequestScheduleStudent id='student' />
+
             </Page>
         );
     };

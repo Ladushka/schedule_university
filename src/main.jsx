@@ -9,6 +9,7 @@ require('onsenui/css/onsenui.css');
 
 import App from './App';
 import UserType from './rigestration/userType';
+
 ReactDOM.render(
     <div>
         <UserType />
