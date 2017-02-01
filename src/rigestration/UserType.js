@@ -2,7 +2,7 @@ import React from 'react';
 import {Page, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
 
 import RequestScheduleStudent from  './../student/RequestSchedule'
-import RequestScheduleLecturer from  './../student/RequestSchedule'
+import RequestScheduleLecturer from  './../lecturer/RequestSchedule'
 
 class UserType extends React.Component {
     constructor(props) {
@@ -66,10 +66,13 @@ class UserType extends React.Component {
             <Page renderToolbar={this.renderToolbar}>
                 <List
                     dataSource={this.state.user}
-                    renderHeader={()=><ListHeader>Who are you?</ListHeader>}
+                    renderHeader={() => <ListHeader>Who are you?</ListHeader>}
                     renderRow={this.renderRadioRow}/>
-                <RequestScheduleStudent id='student' />
-
+                    {this.state.selectedItem == 'student' ? (
+                        <RequestScheduleStudent />
+                    ) : (
+                        <RequestScheduleLecturer />
+                    )}
             </Page>
         );
     };
