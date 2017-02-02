@@ -23,7 +23,6 @@ class App extends React.Component {
     }
 
     handleInputChange(event) {
-        //const name = event.target.name;
         this.setState({
             [event.target.name]: event.target.value
         });
@@ -52,7 +51,6 @@ class App extends React.Component {
                             value={this.state.name}
                             onChange={this.handleInputChange}
                             modifier='material'
-                            //float
                             placeholder='Faculty'
                         />
                     </p>
@@ -63,7 +61,6 @@ class App extends React.Component {
                             value={this.state.number}
                             onChange={this.handleInputChange}
                             modifier='material'
-                           // float
                             placeholder='Number'
                         />
                     </p>

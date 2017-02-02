@@ -68,11 +68,15 @@ class UserType extends React.Component {
                     dataSource={this.state.user}
                     renderHeader={() => <ListHeader>Who are you?</ListHeader>}
                     renderRow={this.renderRadioRow}/>
-                    {this.state.selectedItem == 'student' ? (
+                <ListHeader>
+                    <div className='center'>Form for search</div>
+                </ListHeader>
+                {this.state.selectedItem == 'student' ? (
                         <RequestScheduleStudent />
                     ) : (
                         <RequestScheduleLecturer />
                     )}
+
             </Page>
         );
     };

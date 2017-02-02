@@ -3,55 +3,54 @@
 import React from 'react';
 import {Page, Button, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
 import Select from 'react-select';
+import SelectorDayOfWeek from './../general components/SelectorDayOfWeek';
 import 'react-select/dist/react-select.css';
+import './../../www/styles/week.css';
+const FACULTIES = require('../data/data');
 
 class RequestScheduleStudent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            facultySelection: '',
             faculty: '',
             number: '',
             subgroup_number: '',
-            day_of_week: '',
-            faculties: [
-                {name: 'faculty', value: 'юф', label: 'ЮФ'},
-                {name: 'faculty', value: 'миит', label: 'МиИТ'},
-                {name: 'faculty', value: 'бф', label: 'БФ'}
-            ]
+            day_of_week: ''
         };
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.updateValue = this.updateValue.bind(this);
         // this.handleSubmit = this.handleSubmit.bind(this);
+        console.log(FACULTIES['faculties']);
     };
 
     handleInputChange(event) {
-        console.log(event);
         this.setState({
-            [event.name]: event.label
+            [event.target.name]: event.target.value
         });
     };
 
+    updateValue(newValue) {
+        console.log(newValue.label);
+        this.setState({
+            facultySelection: newValue,
+            faculty: newValue.label
+        });
+    };
 
     render() {
         return (
             <section style={{textAlign: 'center'}}>
-                <p>
+                <div className="section">
                     <Select
                         name="faculty"
-                        value={this.state.name}
-                        options={this.state.faculties}
-                        onChange={this.handleInputChange}
-
+                        value={this.state.facultySelection}
+                        options={FACULTIES['faculties']}
+                        onChange={this.updateValue}
+                        clearable={false}
+                        placeholder='Faculty'
                     />
-                    {/*<Input*/}
-                    {/*type="text"*/}
-                    {/*name="faculty"*/}
-                    {/*value={this.state.name}*/}
-                    {/*onChange={this.handleInputChange}*/}
-                    {/*modifier='material'*/}
-                    {/*//float*/}
-                    {/*placeholder='Faculty'*/}
-                    {/*/>*/}
-                </p>
+                </div>
                 <p>
                     <Input
                         type="text"
@@ -59,7 +58,6 @@ class RequestScheduleStudent extends React.Component {
                         value={this.state.number}
                         onChange={this.handleInputChange}
                         modifier='material'
-                        // float
                         placeholder='Number Of Group'
                     />
                 </p>
@@ -70,7 +68,6 @@ class RequestScheduleStudent extends React.Component {
                         value={this.state.subgroup_number}
                         onChange={this.handleInputChange}
                         modifier='material'
-                        // float
                         placeholder='Subgroup Number'
                     />
                 </p>
@@ -81,10 +78,10 @@ class RequestScheduleStudent extends React.Component {
                         value={this.state.day_of_week}
                         onChange={this.handleInputChange}
                         modifier='material'
-                        // float
                         placeholder='Day Of Week'
                     />
                 </p>
+                <SelectorDayOfWeek />
                 <p>
                     <Button onClick={this.handleSubmit}>Show Schedule</Button>
                 </p>
