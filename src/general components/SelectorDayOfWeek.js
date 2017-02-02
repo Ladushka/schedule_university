@@ -9,6 +9,9 @@ class SelectorDayOfWeek extends React.Component {
     constructor(props) {
         super(props);
         this.renderButton = this.renderButton.bind(this);
+        this.changeDay = this.changeDay.bind(this);
+    };
+    changeDay(){
 
     };
     renderButton() {
@@ -16,7 +19,7 @@ class SelectorDayOfWeek extends React.Component {
            return (
                <div className="button-bar__item" key={item}>
                    <input type="radio" name="segment-a" checked/>
-                   <button className="button-bar__button">{item}</button>
+                   <button className="button-bar__button" onClick={this.changeDay}>{item}</button>
                </div>
            );
        });

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {Page, Button, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
-
+import SelectorDayOfWeek from './../general components/SelectorDayOfWeek';
 class RequestScheduleLecturer extends React.Component {
     constructor(props) {
         super(props);
@@ -32,7 +32,6 @@ class RequestScheduleLecturer extends React.Component {
                         value={this.state.faculty}
                         onChange={this.handleInputChange}
                         modifier='material'
-                        //float
                         placeholder='Faculty'
                     />
                 </p>
@@ -43,21 +42,10 @@ class RequestScheduleLecturer extends React.Component {
                         value={this.state.surname}
                         onChange={this.handleInputChange}
                         modifier='material'
-                        // float
                         placeholder='Full Name'
                     />
                 </p>
-                <p>
-                    <Input
-                        type="text"
-                        name="day_of_week"
-                        value={this.state.day_of_week}
-                        onChange={this.handleInputChange}
-                        modifier='material'
-                        // float
-                        placeholder='Day Of Week'
-                    />
-                </p>
+                <SelectorDayOfWeek />
                 <p>
                     <Button onClick={this.handleSubmit}>Show Schedule</Button>
                 </p>
