@@ -3,7 +3,11 @@
 import React from 'react';
 import {Page, Button, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
 import SelectorDayOfWeek from './../general components/SelectorDayOfWeek';
+import RequestScheduleButton from './../general components/RequestScheduleButton';
+import Faculties from './../general components/Faculties';
+
 class RequestScheduleLecturer extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -12,7 +16,6 @@ class RequestScheduleLecturer extends React.Component {
             day_of_week: ''
         };
         this.handleInputChange = this.handleInputChange.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
     };
 
     handleInputChange(event) {
@@ -21,20 +24,10 @@ class RequestScheduleLecturer extends React.Component {
         });
     };
 
-
     render() {
         return (
             <section style={{textAlign: 'center'}}>
-                <p>
-                    <Input
-                        type="text"
-                        name="faculty"
-                        value={this.state.faculty}
-                        onChange={this.handleInputChange}
-                        modifier='material'
-                        placeholder='Faculty'
-                    />
-                </p>
+                    <Faculties />
                 <p>
                     <Input
                         type="text"
@@ -46,24 +39,10 @@ class RequestScheduleLecturer extends React.Component {
                     />
                 </p>
                 <SelectorDayOfWeek />
-                <p>
-                    <Button onClick={this.handleSubmit}>Show Schedule</Button>
-                </p>
+                <RequestScheduleButton />
             </section>
         );
     };
-
-    /*  handleSubmit(event) {
-     console.log(this.state);
-     fetch('http://localhost:8080/groups', {
-     method: 'POST',
-     headers: {
-     'Content-Type': 'application/json'
-     },
-     body: JSON.stringify(this.state)
-     });
-     event.preventDefault();
-     };*/
 }
 ;
 module.exports = RequestScheduleLecturer;

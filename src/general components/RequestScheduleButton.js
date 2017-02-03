@@ -17,12 +17,12 @@ class RequestScheduleButton extends React.Component {
     };
 
     handleSubmit() {
-        for (var r in this.state) {
-            if (r !== 'day_of_week') {
-                this.state[r] = this.props.request[r];
-            }
-        }
-        this.props.request.number = 5;
+        // for (var r in this.state) {
+        //     if (r !== 'day_of_week') {
+        //         this.state[r] = this.props.request[r];
+        //     }
+        // }
+        // this.props.request.number = 5;
         console.log(this.props);
     };
 

@@ -2,12 +2,11 @@
 
 import React from 'react';
 import {Page, Button, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
-import Select from 'react-select';
+import Faculties from './../general components/Faculties';
 import SelectorDayOfWeek from './../general components/SelectorDayOfWeek';
 import RequestScheduleButton from './../general components/RequestScheduleButton';
 import 'react-select/dist/react-select.css';
 import './../../www/styles/week.css';
-const FACULTIES = require('../data/data');
 
 class RequestScheduleStudent extends React.Component {
     constructor(props) {
@@ -19,7 +18,6 @@ class RequestScheduleStudent extends React.Component {
             subgroup_number: ''
         };
         this.handleInputChange = this.handleInputChange.bind(this);
-        this.updateValue = this.updateValue.bind(this);
     };
 
     handleInputChange(event) {
@@ -28,27 +26,10 @@ class RequestScheduleStudent extends React.Component {
         });
     };
 
-    updateValue(newValue) {
-        console.log(newValue.label);
-        this.setState({
-            facultySelection: newValue,
-            faculty: newValue.label
-        });
-    };
-
     render() {
         return (
             <section style={{textAlign: 'center'}}>
-                <div className="section">
-                    <Select
-                        name="faculty"
-                        value={this.state.facultySelection}
-                        options={FACULTIES['faculties']}
-                        onChange={this.updateValue}
-                        clearable={false}
-                        placeholder='Faculty'
-                    />
-                </div>
+                <Faculties />
                 <p>
                     <Input
                         type="text"
@@ -69,7 +50,7 @@ class RequestScheduleStudent extends React.Component {
                         placeholder='Subgroup Number'
                     />
                 </p>
-                <SelectorDayOfWeek request={this.state}/>
+                <SelectorDayOfWeek />
                 <RequestScheduleButton  />
             </section>
         );

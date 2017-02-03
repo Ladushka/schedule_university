@@ -15,8 +15,7 @@ class SelectorDayOfWeek extends React.Component {
             subgroup_number: ''
         };
         this.renderButton = this.renderButton.bind(this);
-        this.changeDay = this.changeDay.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+
     };
 
     changeDay(item) {
@@ -24,25 +23,16 @@ class SelectorDayOfWeek extends React.Component {
             day_of_week: item
         });
     };
-    renderButton() {
-       return WEEK['week'].map(function (item) {
-           return (
-               <div className="button-bar__item" key={item}>
-                   <input type="radio" name="segment-a" checked/>
-                   <button className="button-bar__button" onClick={this.changeDay}>{item}</button>
-               </div>
-           );
-       });
-    };
 
-    handleSubmit() {
-        for (var r in this.state) {
-            if (r !== 'day_of_week') {
-                this.state[r] = this.props.request[r];
-            }
-        }
-        this.props.request.number = 5;
-        console.log(this.props);
+    renderButton() {
+        return WEEK['week'].map(item => {
+            return (
+                <div className="button-bar__item" key={item}>
+                    <input type="radio" name="segment-a" onChange={this.changeDay.bind(this, item)}/>
+                    <button className="button-bar__button">{item}</button>
+                </div>
+            );
+        });
     };
 
     render() {
