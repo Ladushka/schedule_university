@@ -4,6 +4,7 @@ import React from 'react';
 import {Page, Button, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
 import Select from 'react-select';
 import SelectorDayOfWeek from './../general components/SelectorDayOfWeek';
+import RequestScheduleButton from './../general components/RequestScheduleButton';
 import 'react-select/dist/react-select.css';
 import './../../www/styles/week.css';
 const FACULTIES = require('../data/data');
@@ -15,13 +16,10 @@ class RequestScheduleStudent extends React.Component {
             facultySelection: '',
             faculty: '',
             number: '',
-            subgroup_number: '',
-            day_of_week: ''
+            subgroup_number: ''
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.updateValue = this.updateValue.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
-        console.log(FACULTIES['faculties']);
     };
 
     handleInputChange(event) {
@@ -71,35 +69,11 @@ class RequestScheduleStudent extends React.Component {
                         placeholder='Subgroup Number'
                     />
                 </p>
-                <p>
-                    <Input
-                        type="text"
-                        name="day_of_week"
-                        value={this.state.day_of_week}
-                        onChange={this.handleInputChange}
-                        modifier='material'
-                        placeholder='Day Of Week'
-                    />
-                </p>
-                <SelectorDayOfWeek />
-                <p>
-                    <Button onClick={this.handleSubmit}>Show Schedule</Button>
-                </p>
+                <SelectorDayOfWeek request={this.state}/>
+                <RequestScheduleButton  />
             </section>
         );
     };
-
-    /*  handleSubmit(event) {
-     console.log(this.state);
-     fetch('http://localhost:8080/groups', {
-     method: 'POST',
-     headers: {
-     'Content-Type': 'application/json'
-     },
-     body: JSON.stringify(this.state)
-     });
-     event.preventDefault();
-     };*/
 }
 ;
 module.exports = RequestScheduleStudent;

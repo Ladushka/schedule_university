@@ -8,11 +8,21 @@ const WEEK = require('../data/data');
 class SelectorDayOfWeek extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            day_of_week: '',
+            faculty: '',
+            number: '',
+            subgroup_number: ''
+        };
         this.renderButton = this.renderButton.bind(this);
         this.changeDay = this.changeDay.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     };
-    changeDay(){
 
+    changeDay(item) {
+        this.setState({
+            day_of_week: item
+        });
     };
     renderButton() {
        return WEEK['week'].map(function (item) {
@@ -23,6 +33,16 @@ class SelectorDayOfWeek extends React.Component {
                </div>
            );
        });
+    };
+
+    handleSubmit() {
+        for (var r in this.state) {
+            if (r !== 'day_of_week') {
+                this.state[r] = this.props.request[r];
+            }
+        }
+        this.props.request.number = 5;
+        console.log(this.props);
     };
 
     render() {
