@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 import './../../www/styles/week.css';
 import React from 'react';
@@ -8,22 +8,26 @@ class RequestScheduleButton extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            day_of_week: '',
-            faculty: '',
-            number: '',
-            subgroup_number: ''
+            response: []
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     };
 
     handleSubmit() {
-        // for (var r in this.state) {
-        //     if (r !== 'day_of_week') {
-        //         this.state[r] = this.props.request[r];
-        //     }
-        // }
-        // this.props.request.number = 5;
-        console.log(this.props);
+
+        fetch('http://localhost:8080/lessons/faculty/' + this.props.request.faculty + '/group/' + this.props.request.number)
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (text) {
+                console.log('Request successful', text);
+                this.state.response = text;
+            })
+            .catch(function (error) {
+                log('Request failed', error)
+            });
+        event.preventDefault();
+        console.log(this.state);
     };
 
     render() {

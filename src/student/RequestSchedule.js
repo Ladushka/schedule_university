@@ -12,13 +12,20 @@ class RequestScheduleStudent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            facultySelection: '',
             faculty: '',
             number: '',
-            subgroup_number: ''
+            subgroup_number: '',
+            day_of_week: ''
         };
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleDayChange = this.handleDayChange.bind(this);
+        this.handleFacultyChange = this.handleFacultyChange.bind(this);
     };
+
+    handleFacultyChange(value) {
+        this.setState({faculty: value});
+        console.log(value);
+    }
 
     handleInputChange(event) {
         this.setState({
@@ -26,10 +33,14 @@ class RequestScheduleStudent extends React.Component {
         });
     };
 
+    handleDayChange(value) {
+        this.setState({day_of_week: value});
+    }
+
     render() {
         return (
             <section style={{textAlign: 'center'}}>
-                <Faculties />
+                <Faculties onChange={this.handleFacultyChange}/>
                 <p>
                     <Input
                         type="text"
@@ -50,8 +61,8 @@ class RequestScheduleStudent extends React.Component {
                         placeholder='Subgroup Number'
                     />
                 </p>
-                <SelectorDayOfWeek />
-                <RequestScheduleButton  />
+                <SelectorDayOfWeek onChange={this.handleDayChange}/>
+                <RequestScheduleButton request={this.state}/>
             </section>
         );
     };

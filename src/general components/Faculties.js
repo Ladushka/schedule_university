@@ -10,8 +10,7 @@ class Faculties extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            facultySelection: '',
-            faculty: ''
+            facultySelection: ''
         };
         this.updateValue = this.updateValue.bind(this);
     };
@@ -19,9 +18,10 @@ class Faculties extends React.Component {
     updateValue(newValue) {
         console.log(newValue.label);
         this.setState({
-            facultySelection: newValue,
-            faculty: newValue.label
+            facultySelection: newValue
         });
+        this.props.onChange(newValue.label);
+
     };
 
     render() {

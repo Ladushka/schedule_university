@@ -22,6 +22,7 @@ class SelectorDayOfWeek extends React.Component {
         this.setState({
             day_of_week: item
         });
+        this.props.onChange(item);
     };
 
     renderButton() {
