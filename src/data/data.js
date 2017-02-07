@@ -14,3 +14,5 @@ exports.week = [
     'Пт',
     'Сб'
 ];
+
+exports.schedule = 'blaaa';

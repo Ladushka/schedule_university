@@ -16,7 +16,6 @@ class Faculties extends React.Component {
     };
 
     updateValue(newValue) {
-        console.log(newValue.label);
         this.setState({
             facultySelection: newValue
         });

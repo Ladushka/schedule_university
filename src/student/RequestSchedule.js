@@ -24,7 +24,6 @@ class RequestScheduleStudent extends React.Component {
 
     handleFacultyChange(value) {
         this.setState({faculty: value});
-        console.log(value);
     }
 
     handleInputChange(event) {

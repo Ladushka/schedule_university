@@ -11,12 +11,12 @@ require('onsenui/css/onsenui.css');
 import App from './App';
 import UserType from './rigestration/userType';
 import Schedule from './schedule/Schedule';
-
+// /:facultyId/:groupId
 ReactDOM.render((
     <div>
         <Router history={browserHistory}>
             <Route path="/" component={UserType}/>
-            <Route path="/schedule" component={Schedule}/>
+            <Route path="/schedule/:facultyId/:groupId" component={Schedule}/>
             <Route path="/about" component={App}/>
         </Router>
     </div>

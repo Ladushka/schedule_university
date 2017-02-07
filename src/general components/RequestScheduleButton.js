@@ -2,7 +2,9 @@
 
 import './../../www/styles/week.css';
 import React from 'react';
+import {Link, Router, browserHistory} from 'react-router'
 import {Page, Button, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
+const SCHEDULE = require('../data/data');
 
 class RequestScheduleButton extends React.Component {
     constructor(props) {
@@ -13,21 +15,23 @@ class RequestScheduleButton extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     };
 
-    handleSubmit() {
 
+    handleSubmit() {
         fetch('http://localhost:8080/lessons/faculty/' + this.props.request.faculty + '/group/' + this.props.request.number)
-            .then(function (response) {
+            .then(response => {
                 return response.text();
             })
-            .then(function (text) {
+            .then(text => {
                 console.log('Request successful', text);
-                this.state.response = text;
+                SCHEDULE['schedule'] =JSON.parse(text);
+                browserHistory.push({
+                    pathname: '/schedule/' + this.props.request.faculty + '/' + this.props.request.number
+                });
+
             })
             .catch(function (error) {
-                log('Request failed', error)
+                console.log('Request failed', error)
             });
-        event.preventDefault();
-        console.log(this.state);
     };
 
     render() {

@@ -1,62 +1,62 @@
 'use strict';
 import './../../www/styles/schedule.css';
 import React from 'react';
-import {Page, Button, Toolbar, Input, List, ListItem, ListHeader, Row, Col} from 'react-onsenui';
+import {Page, Button, Toolbar, Input, List, ListItem, ListHeader, Row, Col,Icon} from 'react-onsenui';
+const SCHEDULE = require('../data/data');
 
 class Schedule extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            response: []
-        };
-        //this.handleSubmit = this.handleSubmit.bind(this);
     };
 
+    renderRow() {
+        return SCHEDULE['schedule'].map(item => {
+            return (
+                <ListItem modifier="chevron tappable" class="plan" key={item.id}>
+                    <Row>
+                        <Col width="80px" class="plan-left">
+                            <div className="plan-date">{item.lecture_hall}</div>
+                            <div className="plan-duration">1h 20min</div>
+                        </Col>
+
+                        <Col width="6px" class="plan-center">
+                        </Col>
+
+                        <Col class="plan-right">
+                            <div className="plan-name">{item.subject_name}</div>
+
+                            <div className="plan-info">
+                                <div>
+                                    <Icon className="plan-icon" icon="ion-android-person"></Icon>
+                                    {item.lecturer.surname}
+                                </div>
+
+                                <div>
+                                    <Icon className="plan-icon" icon="fa-map-marker"></Icon>
+                                    {item.lecture_hall}
+                                </div>
+                                <div>
+                                    <Icon className="plan-icon" icon="ion-ios-compose"></Icon>
+                                    {item.type}
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
+                </ListItem>
+            );
+        });
+    };
 
     render() {
         return (
 
             <Page>
-                {/*<Toolbar>*/}
-                {/*<div className="left">*/}
-                {/*</div>*/}
-                {/*<div className="center">*/}
-                {/*Schedule*/}
-                {/*</div>*/}
-                {/*<div className="right">*/}
-                {/*</div>*/}
-                {/*</Toolbar>*/}
-
-
                 <List class="plan-list">
-                    <ListItem modifier="chevron tappable" class="plan" ng-repeat="a in [1,2,3,4,5,6,7,8,9,10]">
-                        <Row>
-                            <Col width="80px" class="plan-left">
-                                <div className="plan-date">5:30 PM</div>
-                                <div className="plan-duration">1h</div>
-                            </Col>
-
-                            <Col width="6px" class="plan-center"
-                                 ng-style="{backgroundColor:a % 3 == 1 ? '#3399ff' : '#ccc'}">
-                            </Col>
-
-                            <Col class="plan-right">
-                                <div className="plan-name">Onsen UI Meetup</div>
-                                <div className="plan-info">
-                                    {/*<div ng-hide="a % 4 == 0">*/}
-                                    {/*<Icon className="plan-icon" icon="fa-phone"></Icon>123-456-789*/}
-                                    {/*</div>*/}
-
-                                    {/*<div ng-hide="a % 3 == 0">*/}
-                                    {/*<Icon className="plan-icon" icon="fa-map-marker"></Icon>Moscone, San Francisco*/}
-                                    {/*</div>*/}
-                                </div>
-                            </Col>
-                        </Row>
-                    </ListItem>
+                    {this.renderRow()}
                 </List>
             </Page>
         );
     };
-};
+}
+;
 module.exports = Schedule;
