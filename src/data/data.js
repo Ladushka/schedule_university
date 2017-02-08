@@ -23,3 +23,10 @@ exports.scheduleOfCalls = [
     {number: 3, time: '11.25'},
     {number: 4, time: '13.00'},
 ];
+
+exports.myData = [
+    'John',
+    'Miles',
+    'Charles',
+    'Herbie',
+];

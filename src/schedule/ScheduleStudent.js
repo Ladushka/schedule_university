@@ -56,7 +56,7 @@ class ScheduleStudent extends React.Component {
             pathname: '/'
         });
     };
-    
+
     render() {
         return (
             <Page>

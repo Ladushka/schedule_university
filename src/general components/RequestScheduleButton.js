@@ -17,7 +17,6 @@ class RequestScheduleButton extends React.Component {
 
 
     handleSubmit() {
-        console.log(this.props)
         fetch('http://localhost:8080/lessons/faculty/' + this.props.request.faculty + '/group/' + this.props.request.number)
             .then(response => {
                 return response.text();
