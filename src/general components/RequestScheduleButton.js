@@ -23,7 +23,10 @@ class RequestScheduleButton extends React.Component {
             })
             .then(text => {
                 console.log('Request successful', text);
-                SCHEDULE['schedule'] =JSON.parse(text);
+                SCHEDULE['schedule'] = JSON.parse(text);
+                SCHEDULE['schedule'] = SCHEDULE['schedule'].filter(item => {
+                    return item.day_of_week == this.props.request.day_of_week && (item.subgroup_number == this.props.request.subgroup_number || item.subgroup_number == 0);
+                });
                 browserHistory.push({
                     pathname: '/schedule/' + this.props.request.faculty + '/' + this.props.request.number
                 });

@@ -7,12 +7,12 @@ exports.faculties = [
 ];
 
 exports.week = [
-    'Пн',
-    'Вт',
-    'Ср',
-    'Чт',
-    'Пт',
-    'Сб'
+    {name: 'Пн', value: 'Понедельник'},
+    {name: 'Вт', value: 'Вторник'},
+    {name: 'Ср', value: 'Среда'},
+    {name: 'Чт', value: 'Четверг'},
+    {name: 'Пт', value: 'Пятница'},
+    {name: 'Сб', value: 'Суббота'}
 ];
 
 exports.schedule = 'blaaa';

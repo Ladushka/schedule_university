@@ -28,9 +28,9 @@ class SelectorDayOfWeek extends React.Component {
     renderButton() {
         return WEEK['week'].map(item => {
             return (
-                <div className="button-bar__item" key={item}>
-                    <input type="radio" name="segment-a" onChange={this.changeDay.bind(this, item)}/>
-                    <button className="button-bar__button">{item}</button>
+                <div className="button-bar__item" key={item.name}>
+                    <input type="radio" name="segment-a" onChange={this.changeDay.bind(this, item.value)}/>
+                    <button className="button-bar__button">{item.name}</button>
                 </div>
             );
         });
