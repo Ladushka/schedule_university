@@ -2,7 +2,7 @@
 
 import './../../www/styles/week.css';
 import React from 'react';
-import {Link, Router, browserHistory} from 'react-router'
+import {browserHistory} from 'react-router'
 import {Page, Button, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
 const SCHEDULE = require('../data/data');
 
@@ -17,6 +17,7 @@ class RequestScheduleButton extends React.Component {
 
 
     handleSubmit() {
+        console.log(this.props)
         fetch('http://localhost:8080/lessons/faculty/' + this.props.request.faculty + '/group/' + this.props.request.number)
             .then(response => {
                 return response.text();
