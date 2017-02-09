@@ -11,6 +11,7 @@ require('onsenui/css/onsenui.css');
 import App from './App';
 import UserType from './rigestration/userType';
 import ScheduleStudent from './schedule/ScheduleStudent';
+import './../www/styles/general.css';
 
 ReactDOM.render((
     <div>

@@ -39,7 +39,7 @@ class RequestScheduleButton extends React.Component {
 
     render() {
         return (
-            <p>
+            <p className="button-request">
                 <Button onClick={this.handleSubmit}>Show Schedule</Button>
             </p>
         );

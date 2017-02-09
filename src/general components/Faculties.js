@@ -4,6 +4,8 @@ import React from 'react';
 import {Page, Button, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
+import 'bootstrap/dist/css/bootstrap.css';
+
 const FACULTIES = require('../data/data');
 
 class Faculties extends React.Component {
@@ -25,7 +27,7 @@ class Faculties extends React.Component {
 
     render() {
         return (
-            <div className="section">
+            <div className="section faculties">
                 <Select
                     name="faculty"
                     value={this.state.facultySelection}
