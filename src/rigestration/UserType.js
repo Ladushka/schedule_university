@@ -13,16 +13,6 @@ class UserType extends React.Component {
                 'student',
                 'lecturer'
             ],
-            student: [
-                'faculty',
-                'group',
-                'subgroup',
-                'day_of_week'
-            ],
-            lecturer: [
-                'name',
-                'day_of_week'
-            ],
             selectedItem: 'student'
         };
 
@@ -32,7 +22,7 @@ class UserType extends React.Component {
 
     handleItemChange(item) {
         this.setState({selectedItem: item});
-
+        this.props.onChange(item);
     };
 
     renderRadioRow(row) {
@@ -53,31 +43,12 @@ class UserType extends React.Component {
         )
     }
 
-    renderToolbar() {
-        return (
-            <Toolbar>
-                <div className='center'>Schedule without login</div>
-            </Toolbar>
-        );
-    }
-
     render() {
         return (
-            <Page renderToolbar={this.renderToolbar}>
                 <List
                     dataSource={this.state.user}
                     renderHeader={() => <ListHeader>Who are you?</ListHeader>}
                     renderRow={this.renderRadioRow}/>
-                <ListHeader>
-                    <div className='center'>Form for search</div>
-                </ListHeader>
-                {this.state.selectedItem == 'student' ? (
-                        <RequestScheduleStudent />
-                    ) : (
-                        <RequestScheduleLecturer />
-                    )}
-
-            </Page>
         );
     };
 

@@ -9,14 +9,14 @@ require('onsenui/css/onsenui.css');
 
 
 import App from './App';
-import UserType from './rigestration/userType';
+import Unregisted from './rigestration/Unregisted';
 import ScheduleStudent from './schedule/ScheduleStudent';
 import './../www/styles/general.css';
 
 ReactDOM.render((
     <div>
         <Router history={browserHistory}>
-            <Route path="/" component={UserType}/>
+            <Route path="/" component={Unregisted}/>
             <Route path="/schedule/:facultyId/:groupId" component={ScheduleStudent}/>
             <Route path="/about" component={App}/>
         </Router>
