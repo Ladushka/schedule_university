@@ -11,6 +11,8 @@ require('onsenui/css/onsenui.css');
 import App from './App';
 import Unregisted from './rigestration/Unregisted';
 import ScheduleStudent from './schedule/ScheduleStudent';
+import SignUp from './rigestration/SignUp';
+import SignIn from './rigestration/SignIn';
 import './../www/styles/general.css';
 
 ReactDOM.render((
@@ -19,6 +21,8 @@ ReactDOM.render((
             <Route path="/" component={Unregisted}/>
             <Route path="/schedule/:facultyId/:groupId" component={ScheduleStudent}/>
             <Route path="/about" component={App}/>
+            <Route path="/sign" component={SignUp}/>
+            <Route path="/signIn" component={SignIn}/>
         </Router>
     </div>
     ),

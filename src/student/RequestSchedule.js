@@ -42,7 +42,8 @@ class RequestScheduleStudent extends React.Component {
 
     updateValue(newValue) {
         this.setState({
-            subgroupSelection: newValue
+            subgroupSelection: newValue,
+            subgroup_number: newValue.label
         });
     };
 
