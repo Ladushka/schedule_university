@@ -4,9 +4,9 @@ import React from 'react';
 import {Page, Button, Toolbar, Input, List, ListItem, ListHeader, Icon} from 'react-onsenui';
 import Faculties from './../general components/Faculties';
 import NumberOfGroup from './../general components/NumberOfGroup';
+import SubgroupNumber from './../general components/SubgroupNumber';
 import SelectorDayOfWeek from './../general components/SelectorDayOfWeek';
 import RequestScheduleButton from './../general components/RequestScheduleButton';
-import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import './../../www/styles/week.css';
 const SUBGROUPS = require('../data/data');
@@ -19,14 +19,14 @@ class RequestScheduleStudent extends React.Component {
             number: '',
             subgroup_number: '',
             day_of_week: '',
-            subgroupSelection: '',
             faculties: [{value: '', label: ''}],
         };
-        this.handleInputChange = this.handleInputChange.bind(this);
+
         this.handleDayChange = this.handleDayChange.bind(this);
         this.handleFacultyChange = this.handleFacultyChange.bind(this);
         this.handleGroupChange = this.handleGroupChange.bind(this);
-        this.updateValue = this.updateValue.bind(this);
+        this.handleSubgroupChange = this.handleSubgroupChange.bind(this);
+
     };
 
     handleFacultyChange(value) {
@@ -47,14 +47,10 @@ class RequestScheduleStudent extends React.Component {
                 console.log('Request failed', error)
             });
     }
-    handleGroupChange(value){
+
+    handleGroupChange(value) {
         this.setState({
             number: value
-        });
-    };
-    handleInputChange(event) {
-        this.setState({
-            [event.target.name]: event.target.value
         });
     };
 
@@ -62,11 +58,10 @@ class RequestScheduleStudent extends React.Component {
         this.setState({day_of_week: value});
     };
 
-    updateValue(newValue) {
+    handleSubgroupChange(value) {
         this.setState({
-            subgroupSelection: newValue,
-            subgroup_number: newValue.label
-        });
+            subgroup_number: value
+        })
     };
 
     render() {
@@ -75,16 +70,7 @@ class RequestScheduleStudent extends React.Component {
             <section style={{textAlign: 'center'}}>
                 <Faculties onChange={this.handleFacultyChange}/>
                 <NumberOfGroup onChange={this.handleGroupChange} options={this.state.faculties}/>
-                <div className="section faculties">
-                    <Select
-                        name="subgroup_number"
-                        value={this.state.subgroupSelection}
-                        options={SUBGROUPS['subgroups']}
-                        onChange={this.updateValue}
-                        clearable={false}
-                        placeholder='Subgroup number'
-                    />
-                </div>
+                <SubgroupNumber onChange={this.handleSubgroupChange}/>
                 <SelectorDayOfWeek onChange={this.handleDayChange}/>
                 <RequestScheduleButton request={this.state}/>
             </section>
