@@ -10,6 +10,7 @@ class SignUp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: 0,
             login: '',
             sdo_id: '',
             password: '',
@@ -18,7 +19,7 @@ class SignUp extends React.Component {
         };
         this.handleUserTypeChange = this.handleUserTypeChange.bind(this);
         this.handleLoginChange = this.handleLoginChange.bind(this);
-        this.handlePasswordChange = this.handlePasswordChange(this);
+        this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     };
 
@@ -31,7 +32,8 @@ class SignUp extends React.Component {
     handleLoginChange(value) {
         this.state.role === 'student' ? (
                 this.setState({
-                    sdo_id: value
+                    sdo_id: value,
+                    login: value
                 })
             ) : (
                 this.setState({
@@ -41,7 +43,6 @@ class SignUp extends React.Component {
     };
 
     handlePasswordChange(value) {
-        console.log(value);
         this.setState({
             password: value
         });
@@ -49,14 +50,15 @@ class SignUp extends React.Component {
 
     handleSubmit() {
         console.log(this.state);
-        // fetch('http://localhost:8080/users', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(this.state)
-        // });
-        //event.preventDefault();
+
+        fetch('http://localhost:8080/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(this.state)
+        });
+        event.preventDefault();
     };
 
     render() {
@@ -66,7 +68,7 @@ class SignUp extends React.Component {
                 <hr/>
                 <section style={{textAlign: 'center'}}>
                     <SdoId name={this.state.role} onChange={this.handleLoginChange}/>
-                    <Password password={this.handlePasswordChange}/>
+                    <Password onChange={this.handlePasswordChange}/>
                     <p>
                         <Button onClick={this.handleSubmit}>Add User</Button>
                     </p>

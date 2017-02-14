@@ -25,10 +25,11 @@ class SdoId extends React.Component {
             <p className="button-request">
                 <Input
                     type='text'
+                    id='login'
                     name={this.props.name === 'student' ? 'sdo_id' : 'login'}
                     value={this.props.name === 'student' ? this.props.sdo_id : this.props.login}
                     onChange={this.handleInputChange}
-                    modifier='material'
+                    modifier='underbar'
                     placeholder={this.props.name === 'student' ? 'Sdo Id' : 'Login'}
                 />
             </p>

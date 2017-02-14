@@ -1,9 +1,6 @@
 import React from 'react';
 import {Page, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
 
-import RequestScheduleStudent from  './../student/RequestSchedule'
-import RequestScheduleLecturer from  './../lecturer/RequestSchedule'
-
 class UserType extends React.Component {
     constructor(props) {
         super(props);
@@ -23,6 +20,8 @@ class UserType extends React.Component {
     handleItemChange(item) {
         this.setState({selectedItem: item});
         this.props.onChange(item);
+        document.getElementsByName('password')[1].value = '';
+        document.getElementById('login').value = '';
     };
 
     renderRadioRow(row) {
@@ -45,10 +44,10 @@ class UserType extends React.Component {
 
     render() {
         return (
-                <List
-                    dataSource={this.state.user}
-                    renderHeader={() => <ListHeader>Who are you?</ListHeader>}
-                    renderRow={this.renderRadioRow}/>
+            <List
+                dataSource={this.state.user}
+                renderHeader={() => <ListHeader>Who are you?</ListHeader>}
+                renderRow={this.renderRadioRow}/>
         );
     };
 
