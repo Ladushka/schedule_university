@@ -1,15 +1,11 @@
 'use strict';
 
 import React from 'react';
-import {Page, Button, Toolbar, Input, List, ListItem, ListHeader, Icon} from 'react-onsenui';
 import Faculties from './../general components/Faculties';
 import NumberOfGroup from './../general components/NumberOfGroup';
 import SubgroupNumber from './../general components/SubgroupNumber';
 import SelectorDayOfWeek from './../general components/SelectorDayOfWeek';
 import RequestScheduleButton from './../general components/RequestScheduleButton';
-import 'react-select/dist/react-select.css';
-import './../../www/styles/week.css';
-const SUBGROUPS = require('../data/data');
 
 class RequestScheduleStudent extends React.Component {
     constructor(props) {
@@ -21,12 +17,9 @@ class RequestScheduleStudent extends React.Component {
             day_of_week: '',
             faculties: [{value: '', label: ''}],
         };
-
-        this.handleDayChange = this.handleDayChange.bind(this);
         this.handleFacultyChange = this.handleFacultyChange.bind(this);
-        this.handleGroupChange = this.handleGroupChange.bind(this);
-        this.handleSubgroupChange = this.handleSubgroupChange.bind(this);
 
+        this.handleChange = this.handleChange.bind(this);
     };
 
     handleFacultyChange(value) {
@@ -46,32 +39,21 @@ class RequestScheduleStudent extends React.Component {
             .catch(function (error) {
                 console.log('Request failed', error)
             });
-    }
+    };
 
-    handleGroupChange(value) {
+    handleChange(item) {
         this.setState({
-            number: value
+            [item.name]: item.value
         });
     };
 
-    handleDayChange(value) {
-        this.setState({day_of_week: value});
-    };
-
-    handleSubgroupChange(value) {
-        this.setState({
-            subgroup_number: value
-        })
-    };
-
     render() {
-
         return (
             <section style={{textAlign: 'center'}}>
                 <Faculties onChange={this.handleFacultyChange}/>
-                <NumberOfGroup onChange={this.handleGroupChange} options={this.state.faculties}/>
-                <SubgroupNumber onChange={this.handleSubgroupChange}/>
-                <SelectorDayOfWeek onChange={this.handleDayChange}/>
+                <NumberOfGroup onChange={this.handleChange} options={this.state.faculties}/>
+                <SubgroupNumber onChange={this.handleChange}/>
+                <SelectorDayOfWeek onChange={this.handleChange}/>
                 <RequestScheduleButton request={this.state}/>
             </section>
         );
