@@ -1,25 +1,22 @@
 'use strict';
 
 import React from 'react';
-import {Page, Button, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
-import 'bootstrap/dist/css/bootstrap.css';
+import {Input} from 'react-onsenui';
 
-const FACULTIES = require('../data/data');
-
-class Faculties extends React.Component {
+class NumberOfGroup extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            facultySelection: ''
+            groupSelection: ''
         };
         this.updateValue = this.updateValue.bind(this);
     };
 
     updateValue(newValue) {
         this.setState({
-            facultySelection: newValue
+            groupSelection: newValue
         });
         this.props.onChange(newValue.label);
     };
@@ -28,17 +25,16 @@ class Faculties extends React.Component {
         return (
             <div className="section faculties">
                 <Select
-                    id='faculty'
-                    name="faculty"
-                    value={this.state.facultySelection}
-                    options={FACULTIES['faculties']}
+                    name="group_numbers"
+                    value={this.state.groupSelection}
+                    options={this.props.options}
                     onChange={this.updateValue}
                     clearable={false}
-                    placeholder='Faculty'
+                    placeholder='Group number'
                 />
             </div>
         );
     };
 }
 ;
-module.exports = Faculties;
+module.exports = NumberOfGroup;

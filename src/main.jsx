@@ -12,6 +12,7 @@ import App from './App';
 import Unregisted from './rigestration/Unregisted';
 import ScheduleStudent from './schedule/ScheduleStudent';
 import SignUp from './rigestration/SignUp';
+import Student from './rigestration/Student';
 import SignIn from './rigestration/SignIn';
 import './../www/styles/general.css';
 
@@ -23,6 +24,7 @@ ReactDOM.render((
             <Route path="/about" component={App}/>
             <Route path="/sign" component={SignUp}/>
             <Route path="/signIn" component={SignIn}/>
+            <Route path="/student" component={Student}/>
         </Router>
     </div>
     ),
