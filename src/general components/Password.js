@@ -16,18 +16,18 @@ class Password extends React.Component {
         this.setState({
             password: event.target.value
         });
-        this.props.password(event.target.value)
+        this.props.onChange(event.target.value)
     };
 
     render() {
         return (
             <p className="button-request">
                 <Input
-                    type='text'
+                    type='password'
                     name='password'
                     value={this.state.password}
                     onChange={this.handleInputChange}
-                    modifier='material'
+                    modifier='underbar'
                     placeholder='Password'
                 />
             </p>
