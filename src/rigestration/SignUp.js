@@ -3,8 +3,9 @@ import React from 'react';
 import UserType from './UserType';
 import SdoId from './../general components/SdoId';
 import Password from './../general components/Password';
+import FullName from './FullName';
 import {Page, Button} from 'react-onsenui';
-
+import {browserHistory} from 'react-router'
 
 class SignUp extends React.Component {
     constructor(props) {
@@ -58,6 +59,9 @@ class SignUp extends React.Component {
             },
             body: JSON.stringify(this.state)
         });
+        browserHistory.push({
+            pathname: '/student/'+this.state.sdo_id
+        });
         event.preventDefault();
     };
 
@@ -66,13 +70,22 @@ class SignUp extends React.Component {
             <Page>
                 <UserType onChange={this.handleUserTypeChange}/>
                 <hr/>
-                <section style={{textAlign: 'center'}}>
-                    <SdoId name={this.state.role} onChange={this.handleLoginChange}/>
-                    <Password onChange={this.handlePasswordChange}/>
-                    <p>
-                        <Button onClick={this.handleSubmit}>Add User</Button>
-                    </p>
-                </section>
+
+                {this.state.role == 'student' ? (
+                        <section style={{textAlign: 'center'}}>
+                            <SdoId name={this.state.role} onChange={this.handleLoginChange}/>
+                            < Password onChange={this.handlePasswordChange}/>
+                            <p>
+                                <Button onClick={this.handleSubmit}>Add User</Button>
+                            </p>
+                        </section>
+                    ) : (
+                        <section style={{textAlign: 'center'}}>
+                            <FullName />
+                        </section>
+                    )
+                }
+
             </Page>
         );
     };

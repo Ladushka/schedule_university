@@ -18,7 +18,7 @@ class NumberOfGroup extends React.Component {
         this.setState({
             groupSelection: newValue
         });
-        this.props.onChange({value: newValue.label, name: 'number'});
+        this.props.onChange({value: newValue.label, name: 'group_number'});
     };
 
     render() {

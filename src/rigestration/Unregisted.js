@@ -31,9 +31,11 @@ class Unregisted extends React.Component {
             </Toolbar>
         );
     };
-    userTypeChange(value){
+
+    userTypeChange(value) {
         this.setState({selectedItem: value});
     };
+
     render() {
         return (
             <Page renderToolbar={this.renderToolbar}>

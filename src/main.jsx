@@ -14,6 +14,7 @@ import ScheduleStudent from './schedule/ScheduleStudent';
 import SignUp from './rigestration/SignUp';
 import Student from './rigestration/Student';
 import SignIn from './rigestration/SignIn';
+import Profile from './student/Profile';
 import './../www/styles/general.css';
 
 ReactDOM.render((
@@ -24,7 +25,8 @@ ReactDOM.render((
             <Route path="/about" component={App}/>
             <Route path="/sign" component={SignUp}/>
             <Route path="/signIn" component={SignIn}/>
-            <Route path="/student" component={Student}/>
+            <Route path="/student/:sdoId" component={Student}/>
+            <Route path="/profile" component={Profile}/>
         </Router>
     </div>
     ),
