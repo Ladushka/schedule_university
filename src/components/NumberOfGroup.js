@@ -3,7 +3,6 @@
 import React from 'react';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
-import {Input} from 'react-onsenui';
 
 class NumberOfGroup extends React.Component {
     constructor(props) {

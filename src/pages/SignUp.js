@@ -74,7 +74,7 @@ class SignUp extends React.Component {
                 {this.state.role == 'student' ? (
                         <section style={{textAlign: 'center'}}>
                             <SdoId name={this.state.role} onChange={this.handleLoginChange}/>
-                            < Password onChange={this.handlePasswordChange}/>
+                            <Password onChange={this.handlePasswordChange}/>
                             <p>
                                 <Button onClick={this.handleSubmit}>Add User</Button>
                             </p>
@@ -85,7 +85,6 @@ class SignUp extends React.Component {
                         </section>
                     )
                 }
-
             </Page>
         );
     };

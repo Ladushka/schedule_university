@@ -1,11 +1,11 @@
 'use strict';
 
 import React from 'react';
-import Faculties from '../components/Faculties';
-import NumberOfGroup from '../components/NumberOfGroup';
-import SubgroupNumber from '../components/SubgroupNumber';
-import SelectorDayOfWeek from '../components/SelectorDayOfWeek';
-import RequestScheduleButton from '../components/RequestScheduleButton';
+import Faculties from './../Faculties';
+import NumberOfGroup from '../NumberOfGroup';
+import SubgroupNumber from '../SubgroupNumber';
+import SelectorDayOfWeek from '../SelectorDayOfWeek';
+import RequestScheduleButton from '../RequestScheduleButton';
 
 class RequestScheduleStudent extends React.Component {
     constructor(props) {

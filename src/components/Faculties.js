@@ -1,7 +1,6 @@
 'use strict';
 
 import React from 'react';
-import {Page, Button, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import 'bootstrap/dist/css/bootstrap.css';

@@ -17,7 +17,7 @@ class FullName extends React.Component {
         this.setState({
             [event.target.name]: event.target.value
         });
-        this.props.onChange({name:event.target.name,value:event.target.value})
+        this.props.onChange({name: event.target.name, value: event.target.value})
     };
 
     render() {

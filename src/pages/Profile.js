@@ -3,20 +3,20 @@
 import React from 'react';
 import './../../www/styles/profile.css';
 import {Page, Toolbar, ListItem, Row, Col, List, BackButton, ToolbarButton, Icon, Tabbar, Tab} from 'react-onsenui';
+const STUDENT = require('../data/data');
 
 class Profile extends React.Component {
+    constructor(props){
+        super(props);
+        this.state={
+            student:STUDENT['student']
+        };
+        console.log(STUDENT['student']);
+    }
     render() {
+        console.log(STUDENT['student']);
         return (
             <div>
-                {/*<Tabbar>*/}
-                    {/*<Tab page="page.html" icon="ion-search" label="Find a place" active="true">*/}
-                    {/*</Tab>*/}
-                    {/*<Tab page="page.html" icon="ion-heart" label="Favorites">*/}
-                    {/*</Tab>*/}
-                    {/*<Tab page="page.html" icon="ion-person" label="Profile">*/}
-                    {/*</Tab>*/}
-                {/*</Tabbar>*/}
-
 
                 <Page modifier="shop-details">
                     <Toolbar modifier="transparent">
@@ -31,8 +31,8 @@ class Profile extends React.Component {
 
                     <div className="card">
 
-                        <div className="card-name">Onsen Sushi</div>
-                        <div className="card-desc">Traditional Japanese Sushi<br/>Open until 10:30pm</div>
+                        <div className="card-name">Student</div>
+                        <div className="card-desc">{this.props.routeParams.login}<br/></div>
 
                     </div>
 
@@ -40,23 +40,18 @@ class Profile extends React.Component {
                         <Row class="action">
 
                             <Col class="action-col">
-                                <div className="action-icon"><Icon icon="ion-ios-star-half"/></div>
-                                <div className="action-label">Rate</div>
+                                <div className="action-icon"><Icon icon="ion-chatbubble"/></div>
+                                <div className="action-label">Messages</div>
                             </Col>
 
                             <Col class="action-col">
-                                <div className="action-icon"><Icon icon="ion-bookmark"/></div>
-                                <div className="action-label">Favorite</div>
-                            </Col>
-
-                            <Col class="action-col">
-                                <div className="action-icon"><Icon icon="ion-share"/></div>
-                                <div className="action-label">Share</div>
+                                <div className="action-icon"><Icon icon="ion-calendar"/></div>
+                                <div className="action-label">Schedule</div>
                             </Col>
 
                             <Col class="action-col">
                                 <div className="action-icon"><Icon icon="ion-compose"/></div>
-                                <div className="action-label">Check In</div>
+                                <div className="action-label">Edit Profile</div>
                             </Col>
 
                         </Row>
@@ -66,14 +61,14 @@ class Profile extends React.Component {
                         <ListItem modifier="chevron tappable">
                             <div className="prop-desc">
                                 <Icon icon="fa-map-marker"/>
-                                2-15-13 Hongo Bunkyo Tokyo
+                                {this.state.student.surname}  {this.state.student.name}
                             </div>
                         </ListItem>
 
                         <ListItem modifier="chevron tappable">
                             <div className="prop-desc">
                                 <Icon icon="fa-mobile"/>
-                                (111) 123-4567
+                                {this.state.student.name}
                             </div>
                         </ListItem>
 

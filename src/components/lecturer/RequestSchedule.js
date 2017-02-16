@@ -1,10 +1,10 @@
 'use strict';
 
 import React from 'react';
-import {Page, Button, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
-import SelectorDayOfWeek from '../components/SelectorDayOfWeek';
-import RequestScheduleButton from '../components/RequestScheduleButton';
-import Faculties from '../components/Faculties';
+import {Page, Button, Toolbar, Input, List, ListItem} from 'react-onsenui';
+import SelectorDayOfWeek from './../SelectorDayOfWeek';
+import RequestScheduleButton from '../RequestScheduleButton';
+import Faculties from '../Faculties';
 
 import {Typeahead} from 'react-bootstrap-typeahead';
 import 'react-select/dist/react-select.css';
@@ -12,8 +12,8 @@ import 'react-bootstrap-typeahead/css/ClearButton.css';
 import 'react-bootstrap-typeahead/css/Loader.css';
 import 'react-bootstrap-typeahead/css/Token.css';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
-import './../../www/styles/week.css';
-const NAMES = require('../data/data');
+import './../../../www/styles/week.css';
+const NAMES = require('../../data/data');
 
 class RequestScheduleLecturer extends React.Component {
 

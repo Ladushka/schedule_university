@@ -1,9 +1,9 @@
 'use strict';
-import './../../www/styles/schedule.css';
+import './../../../www/styles/schedule.css';
 import React from 'react';
-import {Page, Button, Toolbar, Input, List, ListItem, ListHeader, Row, Col, Icon, Tab, Tabbar, Fab} from 'react-onsenui';
+import {Page, Button, Toolbar, Input, List, ListItem, Row, Col, Icon, Tab, Tabbar, Fab} from 'react-onsenui';
 import {browserHistory} from 'react-router'
-const SCHEDULE = require('../data/data');
+const SCHEDULE = require('../../data/data');
 
 class ScheduleStudent extends React.Component {
     constructor(props) {

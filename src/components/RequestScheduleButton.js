@@ -3,7 +3,7 @@
 import './../../www/styles/week.css';
 import React from 'react';
 import {browserHistory} from 'react-router'
-import {Page, Button, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
+import {Button} from 'react-onsenui';
 const SCHEDULE = require('../data/data');
 
 class RequestScheduleButton extends React.Component {

@@ -2,7 +2,6 @@
 import React from 'react';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
-import {Input} from 'react-onsenui';
 const SUBGROUPS = require('./../data/data');
 
 class SubgroupNumber extends React.Component {

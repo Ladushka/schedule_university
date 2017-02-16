@@ -1,7 +1,6 @@
 'use strict';
 import './../../www/styles/week.css';
 import React from 'react';
-import {Page, Button, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
 
 const WEEK = require('../data/data');
 

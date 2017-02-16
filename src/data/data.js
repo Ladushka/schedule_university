@@ -35,3 +35,14 @@ exports.subgroups = [
     {value: '1', label: '1'},
     {value: '2', label: '2'}
 ];
+
+exports.student = {
+    "id": 4,
+    "name": "Дмитрий",
+    "surname": "Наследников",
+    "patronymic": null,
+    "sdo_id": 1301080056,
+    "group_id": 43,
+    "subgroup_number": 2
+};
+// exports.student = 'работай!';

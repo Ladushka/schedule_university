@@ -27,7 +27,7 @@ ReactDOM.render((
             <Route path="/sign" component={SignUp}/>
             <Route path="/signIn" component={SignIn}/>
             <Route path="/student/:sdoId" component={Student}/>
-            <Route path="/profile" component={Profile}/>
+            <Route path="/profile/:login" component={Profile}/>
         </Router>
     </div>
     ),

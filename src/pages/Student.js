@@ -6,6 +6,8 @@ import NumberOfGroup from '../components/NumberOfGroup';
 import SubgroupNumber from '../components/SubgroupNumber';
 import {Page, Button} from 'react-onsenui';
 import FullName from '../components/FullName';
+import {browserHistory} from 'react-router'
+const STUDENT = require('../data/data');
 
 class Student extends React.Component {
     constructor(props) {
@@ -93,7 +95,11 @@ class Student extends React.Component {
             .catch(function (error) {
                 console.log('Request failed', error)
             });
-        event.preventDefault();
+        STUDENT['student'] = this.state;
+        browserHistory.push({
+            pathname: '/profile/' + this.state.sdo_id
+        });
+
     };
 
     render() {
