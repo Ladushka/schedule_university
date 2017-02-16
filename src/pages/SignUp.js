@@ -1,9 +1,9 @@
 'use strict';
 import React from 'react';
-import UserType from './UserType';
-import SdoId from './../general components/SdoId';
-import Password from './../general components/Password';
-import FullName from './FullName';
+import UserType from '../components/UserType';
+import SdoId from '../components/SdoId';
+import Password from '../components/Password';
+import FullName from '../components/FullName';
 import {Page, Button} from 'react-onsenui';
 import {browserHistory} from 'react-router'
 

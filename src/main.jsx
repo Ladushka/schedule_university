@@ -6,15 +6,16 @@ import { Router, Route, Link, browserHistory } from 'react-router'
 
 require('onsenui/stylus/blue-basic-theme.styl');
 require('onsenui/css/onsenui.css');
+import  './../node_modules/onsenui/js/onsenui.js';
 
 
 import App from './App';
-import Unregisted from './rigestration/Unregisted';
-import ScheduleStudent from './schedule/ScheduleStudent';
-import SignUp from './rigestration/SignUp';
-import Student from './rigestration/Student';
-import SignIn from './rigestration/SignIn';
-import Profile from './student/Profile';
+import Unregisted from './pages/Unregisted';
+import ScheduleStudent from './pages/schedule/ScheduleStudent';
+import SignUp from './pages/SignUp';
+import Student from './pages/Student';
+import SignIn from './pages/SignIn';
+import Profile from './pages/Profile';
 import './../www/styles/general.css';
 
 ReactDOM.render((

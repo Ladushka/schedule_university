@@ -2,9 +2,9 @@
 
 import React from 'react';
 import {Page, Button, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
-import SelectorDayOfWeek from './../general components/SelectorDayOfWeek';
-import RequestScheduleButton from './../general components/RequestScheduleButton';
-import Faculties from './../general components/Faculties';
+import SelectorDayOfWeek from '../components/SelectorDayOfWeek';
+import RequestScheduleButton from '../components/RequestScheduleButton';
+import Faculties from '../components/Faculties';
 
 import {Typeahead} from 'react-bootstrap-typeahead';
 import 'react-select/dist/react-select.css';

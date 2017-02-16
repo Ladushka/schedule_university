@@ -1,26 +1,17 @@
 'use strict';
 import React from 'react';
 
-import Faculties from './../general components/Faculties';
-import NumberOfGroup from './../general components/NumberOfGroup';
-import SubgroupNumber from './../general components/SubgroupNumber';
+import Faculties from '../components/Faculties';
+import NumberOfGroup from '../components/NumberOfGroup';
+import SubgroupNumber from '../components/SubgroupNumber';
 import {Page, Button} from 'react-onsenui';
-import FullName from './FullName';
+import FullName from '../components/FullName';
 
 class Student extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             id: 0,
-            // request: {
-            //     id: 0,
-            //     name: '',
-            //     surname: '',
-            //     patronymic: '',
-            //     number: '',
-            //     subgroup_number: '',
-            //     sdo_id: this.props.routeParams.sdo_id
-            // },
             name: '',
             surname: '',
             patronymic: '',

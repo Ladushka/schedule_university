@@ -1,9 +1,9 @@
 import React from 'react';
 import {Page, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
 
-import RequestScheduleStudent from  './../student/RequestSchedule';
-import RequestScheduleLecturer from  './../lecturer/RequestSchedule';
-import UserType from './UserType';
+import RequestScheduleStudent from  '../components/student/RequestSchedule';
+import RequestScheduleLecturer from  '../components/lecturer/RequestSchedule';
+import UserType from '../components/UserType';
 class Unregisted extends React.Component {
     constructor(props) {
         super(props);

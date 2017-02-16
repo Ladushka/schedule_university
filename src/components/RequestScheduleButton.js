@@ -17,7 +17,8 @@ class RequestScheduleButton extends React.Component {
 
 
     handleSubmit() {
-        fetch('http://localhost:8080/lessons/faculty/' + this.props.request.faculty + '/group/' + this.props.request.number)
+        console.log(this.props.request);
+        fetch('http://localhost:8080/lessons/faculty/' + this.props.request.faculty + '/group/' + this.props.request.group_number)
             .then(response => {
                 return response.text();
             })
@@ -28,7 +29,7 @@ class RequestScheduleButton extends React.Component {
                     return item.day_of_week == this.props.request.day_of_week && (item.subgroup_number == this.props.request.subgroup_number || item.subgroup_number == 0);
                 });
                 browserHistory.push({
-                    pathname: '/schedule/' + this.props.request.faculty + '/' + this.props.request.number
+                    pathname: '/schedule/' + this.props.request.faculty + '/' + this.props.request.group_number
                 });
 
             })
