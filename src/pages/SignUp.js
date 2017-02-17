@@ -50,8 +50,6 @@ class SignUp extends React.Component {
     };
 
     handleSubmit() {
-        console.log(this.state);
-
         fetch('http://localhost:8080/users', {
             method: 'POST',
             headers: {

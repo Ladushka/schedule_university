@@ -6,8 +6,6 @@ import NumberOfGroup from '../components/NumberOfGroup';
 import SubgroupNumber from '../components/SubgroupNumber';
 import {Page, Button} from 'react-onsenui';
 import FullName from '../components/FullName';
-import {browserHistory} from 'react-router'
-const STUDENT = require('../data/data');
 
 class Student extends React.Component {
     constructor(props) {
@@ -36,6 +34,7 @@ class Student extends React.Component {
             [item.name]: item.value
         });
         if (item.name == 'group_number') {
+            localStorage.setItem('group',item.value);
             fetch('http://localhost:8080/groups/faculty/' + this.state.faculty + '/number/' + item.value)
                 .then(response => {
                     return response.text();
@@ -64,6 +63,7 @@ class Student extends React.Component {
         this.setState({
             faculty: value
         });
+        localStorage.setItem('faculty',value);
         fetch('http://localhost:8080/groups/faculty/' + value)
             .then(response => {
                 return response.text();
@@ -95,11 +95,7 @@ class Student extends React.Component {
             .catch(function (error) {
                 console.log('Request failed', error)
             });
-        STUDENT['student'] = this.state;
-        browserHistory.push({
-            pathname: '/profile/' + this.state.sdo_id
-        });
-
+        localStorage.setItem('student', JSON.stringify(this.state));
     };
 
     render() {
@@ -111,7 +107,7 @@ class Student extends React.Component {
                     <NumberOfGroup onChange={this.handleChange} options={this.state.faculties}/>
                     <SubgroupNumber onChange={this.handleChange}/>
                     <p>
-                        <Button className="button-request" onClick={this.handleSubmit}>Save</Button>
+                        <a href='/profile/'><Button className='button-request' onClick={this.handleSubmit}>Save</Button></a>
                     </p>
                 </section>
             </Page>

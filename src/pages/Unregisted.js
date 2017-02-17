@@ -1,6 +1,5 @@
 import React from 'react';
 import {Page, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
-
 import RequestScheduleStudent from  '../components/student/RequestSchedule';
 import RequestScheduleLecturer from  '../components/lecturer/RequestSchedule';
 import UserType from '../components/UserType';
