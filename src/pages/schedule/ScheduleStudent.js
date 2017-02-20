@@ -9,26 +9,41 @@ class ScheduleStudent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            index: 0
+            isLoading: false,
+            schedule: []
         };
+
+    };
+    componentWillMount(){
+        fetch('http://localhost:8080/lessons/faculty/' + localStorage.getItem('faculty') + '/group/' + localStorage.getItem('group'))
+            .then(response => {
+                return response.text();
+            })
+            .then(text => {
+                console.log('Request successful', text);
+                this.setState({
+                    schedule: JSON.parse(text),
+                    isLoading: true
+                });
+
+            })
+            .catch(function (error) {
+                console.log('Request failed', error)
+            });
     };
 
-    renderRow() {
-        return SCHEDULE['schedule'].map(item => {
+    renderRow(row, index) {
+        console.log('ayy');
+        console.log(this.state.schedule);
             return (
-                <ListItem modifier="chevron tappable" class="plan" key={item.id}>
+                <ListItem modifier="chevron tappable" class="plan" key={index}>
                     <Row>
                         <Col width="80px" class="plan-left">
-                            <div className="plan-date">{
-                                SCHEDULE['scheduleOfCalls'].filter(lesson => {
-                                    return item.number_of_lesson == lesson.number
-                                })[0].time
-                            }</div>
                             <div className="plan-duration">1h 20min</div>
                         </Col>
                         <Col width="6px" class="plan-center">
                         </Col>
-                        <Col class="plan-right">
+                       /* <Col class="plan-right">
                             <div className="plan-name">{item.subject_name}</div>
                             <div className="plan-info">
                                 <div>
@@ -44,21 +59,21 @@ class ScheduleStudent extends React.Component {
                                     {item.type}
                                 </div>
                             </div>
-                        </Col>
+                        </Col>*/
                     </Row>
                 </ListItem>
             );
-        });
+
     };
 
-    goHome(){
+    goHome() {
         browserHistory.push({
             pathname: '/'
         });
     };
 
     render() {
-        return (
+        return this.state.isLoading==true ?(
             <Page>
                 <div className="navigation-bar">
                     <div className="navigation-bar__center">
@@ -73,12 +88,12 @@ class ScheduleStudent extends React.Component {
                     </div>
                 </div>
 
-                <List class="plan-list">
-                    {this.renderRow()}
-                </List>
+                <List class="plan-list"
+                      dataSource={[1, 2]}
+                      renderRow={this.renderRow}/>
                 <Fab position='bottom right' className="fab" onClick={this.goHome}><Icon class="zmdi zmdi-home"/></Fab>
             </Page>
-        );
+        ):(<div>blaaaa</div>)
     };
 }
 ;

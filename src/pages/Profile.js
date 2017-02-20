@@ -2,17 +2,60 @@
 
 import React from 'react';
 import './../../www/styles/profile.css';
-import {Page, Toolbar, ListItem, Row, Col, List, BackButton, ToolbarButton, Icon, Tabbar, Tab} from 'react-onsenui';
+import {
+    Page,
+    Toolbar,
+    ListItem,
+    Row,
+    Col,
+    List,
+    BackButton,
+    ToolbarButton,
+    Icon,
+    Tabbar,
+    Tab,
+    Button
+} from 'react-onsenui';
+const SCHEDULE = require('../data/data');
+import {browserHistory} from 'react-router'
 
 class Profile extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={
-            student:JSON.parse(localStorage.getItem('student')),
+        this.state = {
+            student: JSON.parse(localStorage.getItem('student')),
             faculty: localStorage.getItem('faculty'),
             group: localStorage.getItem('group')
         };
+
+        this.handleShowSchedule = this.handleShowSchedule.bind(this);
     }
+
+    handleShowSchedule() {
+        console.log('work');
+        {/*fetch('http://localhost:8080/lessons/faculty/' + this.state.faculty + '/group/' + this.state.group)*/
+        }
+        {/*.then(response => {*/
+        }
+        {/*return response.text();*/
+        }
+        //     })
+        //     .then(text => {
+        //         console.log('Request successful', text);
+        //         SCHEDULE['schedule'] = JSON.parse(text);
+        //         SCHEDULE['schedule'] = SCHEDULE['schedule'].filter(item => {
+        //             return item.subgroup_number == this.state.subgroup_number || item.subgroup_number == 0;
+        //         });
+        //         browserHistory.push({
+        //             pathname: '/schedule/' + this.state.faculty + '/' + this.state.group
+        //         });
+        //
+        //     })
+        //     .catch(function (error) {
+        //         console.log('Request failed', error)
+        //     });
+    }
+
     render() {
         return (
             <div>
@@ -23,7 +66,7 @@ class Profile extends React.Component {
                             <ToolbarButton><Icon icon="ion-ios-chatboxes" style={{color: 'white'}}/></ToolbarButton>
                         </div>
                         <div className="left">
-                            <ToolbarButton><Icon icon="ion-arrow-left-c" style={{color: 'white', fontSize: 28+'px'}}
+                            <ToolbarButton><Icon icon="ion-arrow-left-c" style={{color: 'white', fontSize: 28 + 'px'}}
                                                  fixed-width="false"/></ToolbarButton>
                         </div>
                     </Toolbar>
@@ -44,12 +87,16 @@ class Profile extends React.Component {
                             </Col>
 
                             <Col class="action-col">
-                                <div className="action-icon"><Icon icon="ion-calendar"/></div>
+                                <div className="action-icon">
+                                    <a href={`/schedule/${this.state.faculty}/${this.state.group}`}>
+                                        <Icon icon="ion-calendar"/>
+                                    </a>
+                                </div>
                                 <div className="action-label">Schedule</div>
                             </Col>
 
                             <Col class="action-col">
-                                <div className="action-icon"><a href={`/schedule/${this.state.faculty}/${this.state.group}`}><Icon icon="ion-compose"/></a></div>
+                                <div className="action-icon"><Icon icon="ion-compose"/></div>
                                 <div className="action-label">Edit Profile</div>
                             </Col>
 
@@ -59,14 +106,14 @@ class Profile extends React.Component {
                     <List style={{borderTop: 0}}>
                         <ListItem modifier="chevron tappable">
                             <div className="prop-desc">
-                                <Icon icon="fa-map-marker"/>
-                                {this.state.student.surname}  {this.state.student.name}
+                                <Icon icon="ion-android-contact"/>
+                                {this.state.student.surname} {this.state.student.name}
                             </div>
                         </ListItem>
 
                         <ListItem modifier="chevron tappable">
                             <div className="prop-desc">
-                                <Icon icon="fa-mobile"/>
+                                <Icon icon="ion-university"/>
                                 {this.state.student.name}
                             </div>
                         </ListItem>
