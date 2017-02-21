@@ -16,8 +16,6 @@ import {
     Tab,
     Button
 } from 'react-onsenui';
-const SCHEDULE = require('../data/data');
-import {browserHistory} from 'react-router'
 
 class Profile extends React.Component {
     constructor(props) {
@@ -27,34 +25,7 @@ class Profile extends React.Component {
             faculty: localStorage.getItem('faculty'),
             group: localStorage.getItem('group')
         };
-
-        this.handleShowSchedule = this.handleShowSchedule.bind(this);
-    }
-
-    handleShowSchedule() {
-        console.log('work');
-        {/*fetch('http://localhost:8080/lessons/faculty/' + this.state.faculty + '/group/' + this.state.group)*/
-        }
-        {/*.then(response => {*/
-        }
-        {/*return response.text();*/
-        }
-        //     })
-        //     .then(text => {
-        //         console.log('Request successful', text);
-        //         SCHEDULE['schedule'] = JSON.parse(text);
-        //         SCHEDULE['schedule'] = SCHEDULE['schedule'].filter(item => {
-        //             return item.subgroup_number == this.state.subgroup_number || item.subgroup_number == 0;
-        //         });
-        //         browserHistory.push({
-        //             pathname: '/schedule/' + this.state.faculty + '/' + this.state.group
-        //         });
-        //
-        //     })
-        //     .catch(function (error) {
-        //         console.log('Request failed', error)
-        //     });
-    }
+    };
 
     render() {
         return (

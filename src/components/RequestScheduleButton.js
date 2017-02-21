@@ -2,8 +2,8 @@
 
 import './../../www/styles/week.css';
 import React from 'react';
-import {browserHistory} from 'react-router'
 import {Button} from 'react-onsenui';
+import {withRouter} from 'react-router'
 const SCHEDULE = require('../data/data');
 
 class RequestScheduleButton extends React.Component {
@@ -25,7 +25,7 @@ class RequestScheduleButton extends React.Component {
                 SCHEDULE['schedule'] = SCHEDULE['schedule'].filter(item => {
                     return item.day_of_week == this.props.request.day_of_week && (item.subgroup_number == this.props.request.subgroup_number || item.subgroup_number == 0);
                 });
-                browserHistory.push({
+                this.props.router.push({
                     pathname: '/schedule/' + this.props.request.faculty + '/' + this.props.request.group_number
                 });
 
@@ -45,4 +45,4 @@ class RequestScheduleButton extends React.Component {
 
 }
 ;
-module.exports = RequestScheduleButton;
+module.exports = withRouter(RequestScheduleButton);

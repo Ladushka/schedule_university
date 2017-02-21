@@ -15,8 +15,6 @@ exports.week = [
     {name: 'Сб', value: 'Суббота'}
 ];
 
-exports.schedule = 'blaaa';
-
 exports.scheduleOfCalls = [
     {number: 1, time: '8.00'},
     {number: 2, time: '9.35'},
