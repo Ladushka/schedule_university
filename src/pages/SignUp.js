@@ -4,8 +4,8 @@ import UserType from '../components/UserType';
 import SdoId from '../components/SdoId';
 import Password from '../components/Password';
 import FullName from '../components/FullName';
-import {Page, Button} from 'react-onsenui';
-import {browserHistory} from 'react-router'
+import {Page} from 'react-onsenui';
+import AddUser from  '../components/AddUser';
 
 class SignUp extends React.Component {
     constructor(props) {
@@ -21,7 +21,6 @@ class SignUp extends React.Component {
         this.handleUserTypeChange = this.handleUserTypeChange.bind(this);
         this.handleLoginChange = this.handleLoginChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     };
 
     handleUserTypeChange(value) {
@@ -49,33 +48,16 @@ class SignUp extends React.Component {
         });
     };
 
-    handleSubmit() {
-        fetch('http://localhost:8080/users', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(this.state)
-        });
-        browserHistory.push({
-            pathname: '/student/'+this.state.sdo_id
-        });
-        event.preventDefault();
-    };
-
     render() {
         return (
             <Page>
                 <UserType onChange={this.handleUserTypeChange}/>
                 <hr/>
-
                 {this.state.role == 'student' ? (
                         <section style={{textAlign: 'center'}}>
                             <SdoId name={this.state.role} onChange={this.handleLoginChange}/>
                             <Password onChange={this.handlePasswordChange}/>
-                            <p>
-                                <Button onClick={this.handleSubmit}>Add User</Button>
-                            </p>
+                            <AddUser user={this.state}/>
                         </section>
                     ) : (
                         <section style={{textAlign: 'center'}}>

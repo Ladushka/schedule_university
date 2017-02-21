@@ -9,9 +9,6 @@ const SCHEDULE = require('../data/data');
 class RequestScheduleButton extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            response: []
-        };
         this.handleSubmit = this.handleSubmit.bind(this);
     };
 
