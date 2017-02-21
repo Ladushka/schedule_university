@@ -4,8 +4,9 @@ import React from 'react';
 import Faculties from '../components/Faculties';
 import NumberOfGroup from '../components/NumberOfGroup';
 import SubgroupNumber from '../components/SubgroupNumber';
-import {Page, Button} from 'react-onsenui';
+import {Page} from 'react-onsenui';
 import FullName from '../components/FullName';
+import AddStudent from '../components/AddStudent';
 
 class Student extends React.Component {
     constructor(props) {
@@ -24,7 +25,6 @@ class Student extends React.Component {
         };
         this.handleFacultiesChange = this.handleFacultiesChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFullNameChange = this.handleFullNameChange.bind(this);
     };
 
@@ -34,7 +34,7 @@ class Student extends React.Component {
             [item.name]: item.value
         });
         if (item.name == 'group_number') {
-            localStorage.setItem('group',item.value);
+            localStorage.setItem('group', item.value);
             fetch('http://localhost:8080/groups/faculty/' + this.state.faculty + '/number/' + item.value)
                 .then(response => {
                     return response.text();
@@ -63,7 +63,7 @@ class Student extends React.Component {
         this.setState({
             faculty: value
         });
-        localStorage.setItem('faculty',value);
+        localStorage.setItem('faculty', value);
         fetch('http://localhost:8080/groups/faculty/' + value)
             .then(response => {
                 return response.text();
@@ -82,22 +82,6 @@ class Student extends React.Component {
 
     };
 
-    handleSubmit() {
-        delete this.state.faculties;
-        delete this.state.group_number;
-        fetch('http://localhost:8080/students', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(this.state)
-        })
-            .catch(function (error) {
-                console.log('Request failed', error)
-            });
-        localStorage.setItem('student', JSON.stringify(this.state));
-    };
-
     render() {
         return (
             <Page>
@@ -106,9 +90,7 @@ class Student extends React.Component {
                     <Faculties onChange={this.handleFacultiesChange}/>
                     <NumberOfGroup onChange={this.handleChange} options={this.state.faculties}/>
                     <SubgroupNumber onChange={this.handleChange}/>
-                    <p>
-                        <a href='/profile/'><Button className='button-request' onClick={this.handleSubmit}>Save</Button></a>
-                    </p>
+                    <AddStudent student={this.state}/>
                 </section>
             </Page>
         );
