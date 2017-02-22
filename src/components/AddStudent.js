@@ -22,7 +22,7 @@ class AddStudent extends React.Component {
                 console.log('Request failed', error)
             });
         localStorage.setItem('student', JSON.stringify(this.props.student));
-
+        localStorage.setItem('logged-in',true);
         event.preventDefault();
 
         this.props.router.push({

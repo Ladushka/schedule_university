@@ -10,22 +10,24 @@ import  './../node_modules/onsenui/js/onsenui.js';
 
 
 import App from './App';
-import Unregisted from './pages/Unregisted';
+import Main from './pages/Main';
 import ScheduleStudent from './pages/schedule/ScheduleStudent';
 import SignUp from './pages/SignUp';
 import Student from './pages/Student';
 import SignIn from './pages/SignIn';
 import Profile from './pages/Profile';
+import WithoutRegistration from './pages/WithoutRegistration';
 import './../www/styles/general.css';
 
 ReactDOM.render((
         <div>
             <Router history={browserHistory}>
-                <Route path="/" component={Unregisted}/>
+                <Route path="/" component={Main}/>
                 <Route path="/schedule/:facultyId/:groupId" component={ScheduleStudent}/>
                 <Route path="/about" component={App}/>
                 <Route path="/sign" component={SignUp}/>
                 <Route path="/signIn" component={SignIn}/>
+                <Route path="/withoutRegistration" component={WithoutRegistration}/>
                 <Route path="/student/:sdoId" component={Student}/>
                 <Route isLoading={false} path="/profile" component={Profile}/>
 

@@ -29,7 +29,7 @@ class Student extends React.Component {
     };
 
     handleChange(item) {
-        console.log(this.props.routeParams.sdoId);
+        //console.log(this.props.routeParams.sdoId);
         this.setState({
             [item.name]: item.value
         });
