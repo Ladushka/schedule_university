@@ -15,12 +15,14 @@ class SignUp extends React.Component {
             login: '',
             sdo_id: '',
             password: '',
-            role: 'student'
+            role: 'student',
+            lecturer: []
 
         };
         this.handleUserTypeChange = this.handleUserTypeChange.bind(this);
         this.handleLoginChange = this.handleLoginChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
+        this.handleFullNameChange = this.handleFullNameChange.bind(this);
     };
 
     handleUserTypeChange(value) {
@@ -48,6 +50,12 @@ class SignUp extends React.Component {
         });
     };
 
+    handleFullNameChange(value) {
+        this.setState({
+            lecturer: value
+        });
+    };
+
     render() {
         return (
             <Page>
@@ -61,7 +69,9 @@ class SignUp extends React.Component {
                         </section>
                     ) : (
                         <section style={{textAlign: 'center'}}>
-                            <FullName />
+                            <FullName onChange={this.handleFullNameChange}/>
+                            <Password onChange={this.handlePasswordChange}/>
+                            <AddUser user={this.state}/>
                         </section>
                     )
                 }

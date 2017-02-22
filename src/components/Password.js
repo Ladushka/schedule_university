@@ -16,7 +16,7 @@ class Password extends React.Component {
         this.setState({
             password: event.target.value
         });
-        this.props.onChange(event.target.value)
+        this.props.onChange(event.target.value);
     };
 
     render() {

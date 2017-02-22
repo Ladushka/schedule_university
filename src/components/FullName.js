@@ -10,14 +10,14 @@ class FullName extends React.Component {
             surname: '',
             patronymic: ''
         };
-        this.handleChangeInput = this.handleChangeInput.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     };
 
-    handleChangeInput(event) {
+    handleInputChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         });
-        this.props.onChange({name: event.target.name, value: event.target.value})
+        this.props.onChange(this.state);
     };
 
     render() {
@@ -25,29 +25,29 @@ class FullName extends React.Component {
             <section style={{textAlign: 'center'}}>
                 <p>
                     <Input
-                        name="name"
-                        value={this.state.name}
-                        onChange={this.handleChangeInput}
-                        modifier='underbar'
-                        float
-                        placeholder='First Name'/>
-                </p>
-                <p>
-                    <Input
+                        type='text'
                         name="surname"
                         value={this.state.surname}
-                        onChange={this.handleChangeInput}
+                        onChange={this.handleInputChange}
                         modifier='underbar'
-                        float
                         placeholder='Last Name'/>
                 </p>
                 <p>
                     <Input
+                        type='text'
+                        name="name"
+                        value={this.state.name}
+                        onChange={this.handleInputChange}
+                        modifier='underbar'
+                        placeholder='First Name'/>
+                </p>
+                <p>
+                    <Input
+                        type='text'
                         name="patronymic"
                         value={this.state.patronymic}
-                        onChange={this.handleChangeInput}
+                        onChange={this.handleInputChange}
                         modifier='underbar'
-                        float
                         placeholder='Patronymic'/>
                 </p>
             </section>
