@@ -39,23 +39,32 @@ class AddUser extends React.Component {
             lecturer.lecture_id = 0;
             lecturer.login = user.login;
             user.sdo_id = this.state.userCount;
+            /*
+             fetch('http://localhost:8080/lecturers', {
+             method: 'POST',
+             headers: {
+             'Content-Type': 'application/json'
+             },
+             body: JSON.stringify(lecturer)
+             })
+             .then(response => {
+             if (response.status == 200) {
+             localStorage.setItem('logged-in', true);
+             return;
+             }
+             }
+             );
+             */
         }
         console.log(user);
-        fetch('http://localhost:8080/users', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        });
-        fetch('http://localhost:8080/users', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(lecturer)
-        });
-
+        addUser(user);
+        // fetch('http://localhost:8080/users', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(user)
+        // });
         event.preventDefault();
 
         this.props.router.push({

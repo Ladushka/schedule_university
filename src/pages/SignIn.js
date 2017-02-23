@@ -1,9 +1,8 @@
 'use strict';
 
 import React from 'react';
-import ons from 'onsenui';
-import {Page, Toolbar, Input, Button, Dialog} from 'react-onsenui';
-import {browserHistory} from 'react-router'
+import {Page, Toolbar, Input, Button} from 'react-onsenui';
+import LogInContainer from './../containers/LogInContainer';
 
 class SignIn extends React.Component {
     constructor(props) {
@@ -12,7 +11,7 @@ class SignIn extends React.Component {
         this.state = {
             login: '',
             password: '',
-            dialogShown: false
+            onClick: false
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -34,39 +33,9 @@ class SignIn extends React.Component {
     };
 
     handleClick() {
-        fetch('http://localhost:8080/users/login/' + this.state.login)
-            .then(response => {
-                return response.text();
-            })
-            .then(text => {
-                console.log('Request successful', text);
-                    this.setState({dialogShown: true});
-                if(this.state.password==JSON.parse(text).password){
-                    ons.notification.alert({
-                        message:'all ok',
-                        title: 'sign in',
-                        callback:function () {
-                            browserHistory.push({
-                                pathname: '/about'
-                            });
-                        }
-                    });
-                }else{
-                    ons.notification.alert({
-                        message:'your password is wrong',
-                        title: 'sign in',
-                        modifier: 'flat'
-                    });
-                }
-            })
-            .catch(function (error) {
-                ons.notification.alert({
-                    message:'your login is wrong',
-                    title: 'sign in',
-                    modifier: 'flat'
-                });
-                console.log('Request failed', error)
-            });
+        this.setState({
+            onClick: true
+        });
     };
 
     render() {
@@ -94,6 +63,12 @@ class SignIn extends React.Component {
                 <p>
                     <Button onClick={this.handleClick}>Sign in</Button>
                 </p>
+                {this.state.onClick === true ?
+                    (<LogInContainer data={this.state}/>) : (<div></div>)
+
+                }
+                {/*<Button onClick={this.handleClick}>Sign in</Button>*/}
+
             </section>
         </Page>);
 

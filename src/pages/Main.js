@@ -19,7 +19,7 @@ class Main extends React.Component {
 
     signUp() {
         this.props.router.push({
-            pathname: '/sign'
+            pathname: '/signUp'
         });
     };
 
@@ -33,12 +33,12 @@ class Main extends React.Component {
         return (
             <Page>
                 <section style={{textAlign: 'center'}}>
-                    <Button modifier='large--cta' className='button-main'
+                    <Button style={{margin: '6px 40px 6px 40px', width: '60%'}} modifier='large--cta'
                             onClick={this.signIn}>Sign
                         In</Button>
-                    <Button modifier='large--cta' className='button-main'
+                    <Button modifier='large--cta' style={{margin: '6px 40px 6px 40px', width: '60%'}}
                             onClick={this.signUp}>Sign Up</Button>
-                    <Button modifier='large--cta' className='button-main'
+                    <Button modifier='large--cta' style={{margin: '6px 40px 6px 40px', width: '60%'}}
                             onClick={this.withoutRegistration}>Without
                         Registration</Button>
 
