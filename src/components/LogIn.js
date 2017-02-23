@@ -43,9 +43,9 @@ class LogIn extends React.Component {
                         )
                 }
                 <div className='alert-dialog-footer'>
-                    <button onClick={this.handleClick} className='alert-dialog-button'>
+                    <Button onClick={this.handleClick} className='alert-dialog-button'>
                         Ok
-                    </button>
+                    </Button>
                 </div>
             </AlertDialog>
         );

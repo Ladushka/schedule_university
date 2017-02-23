@@ -27,7 +27,7 @@ class Main extends React.Component {
         this.props.router.push({
             pathname: '/withoutRegistration'
         });
-    }
+    };
 
     render() {
         return (
@@ -41,7 +41,6 @@ class Main extends React.Component {
                     <Button modifier='large--cta' style={{margin: '6px 40px 6px 40px', width: '60%'}}
                             onClick={this.withoutRegistration}>Without
                         Registration</Button>
-
                 </section>
             </Page>
         );

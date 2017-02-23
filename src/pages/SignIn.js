@@ -65,10 +65,7 @@ class SignIn extends React.Component {
                 </p>
                 {this.state.onClick === true ?
                     (<LogInContainer data={this.state}/>) : (<div></div>)
-
                 }
-                {/*<Button onClick={this.handleClick}>Sign in</Button>*/}
-
             </section>
         </Page>);
 
