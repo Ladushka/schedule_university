@@ -45,7 +45,8 @@ class Profile extends React.Component {
 
                     <div className="card">
 
-                        <div className="card-name">Student</div>
+                        <div
+                            className="card-name">{localStorage.getItem('role') === 'student' ? Student : Lecturer}</div>
                         <div className="card-desc">{this.state.user.login}<br/></div>
 
                     </div>
@@ -60,9 +61,15 @@ class Profile extends React.Component {
 
                             <Col class="action-col">
                                 <div className="action-icon">
-                                    {/*<a href={`/schedule/${this.state.faculty}/${this.state.group}`}>*/}
-                                        {/*<Icon icon="ion-calendar"/>*/}
-                                    {/*</a>*/}
+                                    {
+                                        localStorage.getItem('role') === 'student' ? (
+                                                <a href={`/schedule/${this.state.faculty}/${this.state.group}`}>
+                                                    <Icon icon="ion-calendar"/>
+                                                </a>
+                                            ) : (
+                                                null
+                                            )
+                                    }
                                 </div>
                                 <div className="action-label">Schedule</div>
                             </Col>

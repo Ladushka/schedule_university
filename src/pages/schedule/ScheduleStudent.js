@@ -8,37 +8,14 @@ const SCHEDULE = require('../../data/data');
 class ScheduleStudent extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            isLoading: false,
-            schedule: []
-        };
+        this.state={
+            schedule:props.schedule
+        }
     };
 
-    componentWillMount() {
-        var url = localStorage.getItem('logged-in') === true ? (
-                'http://localhost:8080/lessons/faculty/' + localStorage.getItem('faculty') + '/group/' + localStorage.getItem('group')
-            ) : (
-                'http://localhost:8080/lessons/faculty/' + JSON.parse(sessionStorage.getItem('student')).faculty + '/group/' + JSON.parse(sessionStorage.getItem('student')).group_number
-            );
-        fetch(url)
-            .then(response => {
-                return response.text();
-            })
-            .then(text => {
-                console.log('Request successful', text);
-                this.setState({
-                    schedule: JSON.parse(text),
-                    isLoading: true
-                });
 
-            })
-            .catch(function (error) {
-                console.log('Request failed', error)
-            });
-    };
-
-    renderRow(row, index) {
-        return this.state.schedule.map(item => {
+    renderRow(index) {
+        return this.props.schedule.map(item => {
             return (
                 <ListItem modifier="chevron tappable" class="plan" key={index}>
                     <Row>
@@ -84,30 +61,28 @@ class ScheduleStudent extends React.Component {
     };
 
     render() {
-        return this.state.isLoading === true ? (
-                <Page>
-                    <div className="navigation-bar">
-                        <div className="navigation-bar__center">
-                            <div className="button-bar" style={{width: 200 + 'px', margin: '8px auto 0'}}>
-                                <div className="button-bar__item">
-                                    <div className="button-bar__button">{this.props.routeParams.facultyId}</div>
-                                </div>
-                                <div className="button-bar__item">
-                                    <div className="button-bar__button">{this.props.routeParams.groupId}</div>
-                                </div>
+        return (
+            <Page>
+                <div className="navigation-bar">
+                    <div className="navigation-bar__center">
+                        <div className="button-bar" style={{width: 200 + 'px', margin: '8px auto 0'}}>
+                            <div className="button-bar__item">
+                                <div className="button-bar__button">{localStorage.getItem('faculty')}</div>
+                            </div>
+                            <div className="button-bar__item">
+                                <div className="button-bar__button">{localStorage.getItem('group')}</div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <List class="plan-list"
-                          dataSource={[1]}
-                          renderRow={() => this.renderRow()}/>
-                    <Fab position='bottom right' className="fab" onClick={this.goHome}><Icon
-                        class="zmdi zmdi-home"/></Fab>
-                </Page>
-            ) : (<div><p>
-                <Icon style={{color: 'red'}} spin icon='md-spinner'/>
-            </p></div>)
+                <List class="plan-list"
+                      dataSource={[1]}
+                      renderRow={() => this.renderRow()}/>
+                <Fab position='bottom right' className="fab" onClick={this.goHome}><Icon
+                    class="zmdi zmdi-home"/></Fab>
+            </Page>
+        );
     };
 }
 ;

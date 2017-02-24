@@ -23,9 +23,9 @@ class LogInContainer extends React.Component {
                 if (this.props.data.password == JSON.parse(text).password) {
                     this.setState({
                         logged_in: true,
-                        login:JSON.parse(text).login
+                        login: JSON.parse(text).login
                     });
-                    localStorage.setItem('role',JSON.parse(text).role)
+                    localStorage.setItem('role', JSON.parse(text).role)
                 } else {
                     this.setState({
                         exception: 'password'
