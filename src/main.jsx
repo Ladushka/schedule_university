@@ -17,6 +17,7 @@ import Student from './pages/Student';
 import SignIn from './pages/SignIn';
 import Profile from './pages/Profile';
 import WithoutRegistration from './pages/WithoutRegistration';
+import ProfileContainer from './pages/../containers/ProfileContainer';
 import './../www/styles/general.css';
 
 ReactDOM.render((
@@ -27,7 +28,7 @@ ReactDOM.render((
                 <Route path="/about" component={App}/>
                 <Route path="/signUp" component={SignUp}/>
                 <Route path="/signIn" component={SignIn}/>
-                <Route path='/signIn/:login/:password' component={SignIn}/>
+                <Route path='/:login' component={ProfileContainer}/>
                 <Route path="/withoutRegistration" component={WithoutRegistration}/>
                 <Route path="/student/:sdoId" component={Student}/>
                 <Route isLoading={false} path="/profile" component={Profile}/>

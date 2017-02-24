@@ -20,10 +20,11 @@ import {
 class Profile extends React.Component {
     constructor(props) {
         super(props);
+        console.log(localStorage.getItem('user'));
         this.state = {
-            student: JSON.parse(localStorage.getItem('student')),
-            faculty: localStorage.getItem('faculty'),
-            group: localStorage.getItem('group')
+            user: JSON.parse(localStorage.getItem('user'))
+            // faculty: localStorage.getItem('faculty'),
+            // group: localStorage.getItem('group')
         };
     };
 
@@ -45,7 +46,7 @@ class Profile extends React.Component {
                     <div className="card">
 
                         <div className="card-name">Student</div>
-                        <div className="card-desc">{this.state.student.sdo_id}<br/></div>
+                        <div className="card-desc">{this.state.user.login}<br/></div>
 
                     </div>
 
@@ -59,9 +60,9 @@ class Profile extends React.Component {
 
                             <Col class="action-col">
                                 <div className="action-icon">
-                                    <a href={`/schedule/${this.state.faculty}/${this.state.group}`}>
-                                        <Icon icon="ion-calendar"/>
-                                    </a>
+                                    {/*<a href={`/schedule/${this.state.faculty}/${this.state.group}`}>*/}
+                                        {/*<Icon icon="ion-calendar"/>*/}
+                                    {/*</a>*/}
                                 </div>
                                 <div className="action-label">Schedule</div>
                             </Col>
@@ -78,14 +79,14 @@ class Profile extends React.Component {
                         <ListItem modifier="chevron tappable">
                             <div className="prop-desc">
                                 <Icon icon="ion-android-contact"/>
-                                {this.state.student.surname} {this.state.student.name}
+                                {this.state.user.surname} {this.state.user.name}
                             </div>
                         </ListItem>
 
                         <ListItem modifier="chevron tappable">
                             <div className="prop-desc">
                                 <Icon icon="ion-university"/>
-                                {this.state.student.name}
+                                {this.state.user.name}
                             </div>
                         </ListItem>
                     </List>

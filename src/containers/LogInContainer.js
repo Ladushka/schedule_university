@@ -8,7 +8,8 @@ class LogInContainer extends React.Component {
         super(props);
         this.state = {
             logged_in: false,
-            exception: ''
+            exception: '',
+            login: ''
         };
     };
 
@@ -21,8 +22,10 @@ class LogInContainer extends React.Component {
                 console.log('Request successful', text);
                 if (this.props.data.password == JSON.parse(text).password) {
                     this.setState({
-                        logged_in: true
+                        logged_in: true,
+                        login:JSON.parse(text).login
                     });
+                    localStorage.setItem('role',JSON.parse(text).role)
                 } else {
                     this.setState({
                         exception: 'password'
