@@ -27,6 +27,7 @@ ReactDOM.render((
                 <Route path="/about" component={App}/>
                 <Route path="/signUp" component={SignUp}/>
                 <Route path="/signIn" component={SignIn}/>
+                <Route path='/signIn/:login/:password' component={SignIn}/>
                 <Route path="/withoutRegistration" component={WithoutRegistration}/>
                 <Route path="/student/:sdoId" component={Student}/>
                 <Route isLoading={false} path="/profile" component={Profile}/>

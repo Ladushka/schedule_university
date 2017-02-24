@@ -29,7 +29,7 @@ class LogInContainer extends React.Component {
                     });
                 }
             })
-            .catch(function (error) {
+            .catch(error => {
                 this.setState({
                     exception: 'login'
                 });

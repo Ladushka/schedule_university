@@ -16,12 +16,14 @@ class SignIn extends React.Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
-    }
+    };
 
     handleChange(event) {
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
+            onClick: false
         });
+
     };
 
     renderToolbar() {
@@ -64,7 +66,7 @@ class SignIn extends React.Component {
                     <Button onClick={this.handleClick}>Sign in</Button>
                 </p>
                 {this.state.onClick === true ?
-                    (<LogInContainer data={this.state}/>) : (<div></div>)
+                    (<LogInContainer data={this.state}/>) : (null)
                 }
             </section>
         </Page>);
@@ -72,4 +74,5 @@ class SignIn extends React.Component {
     };
 }
 ;
+
 module.exports = SignIn;

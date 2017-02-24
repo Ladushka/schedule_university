@@ -26,7 +26,6 @@ class LogIn extends React.Component {
     };
 
     render() {
-        console.log(this.props.response);
         return (
             <AlertDialog
                 isOpen={this.state.dialogShown}
