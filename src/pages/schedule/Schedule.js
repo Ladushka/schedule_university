@@ -3,9 +3,9 @@ import './../../../www/styles/schedule.css';
 import React from 'react';
 import {Page, Button, Toolbar, Input, List, Fab, Icon} from 'react-onsenui';
 import {browserHistory} from 'react-router';
-import Lesson from '../../components/schedule/Lesson'
-import StudentHeader from './../../components/schedule/StudentHeader'
-import LecturerHeader from './../../components/schedule/LecturerHeader'
+import Lesson from './components/Lesson'
+import StudentHeader from './components/StudentHeader'
+import LecturerHeader from './components/LecturerHeader'
 import SelectorDayOfWeek from './../../components/SelectorDayOfWeek'
 
 class ScheduleStudent extends React.Component {
