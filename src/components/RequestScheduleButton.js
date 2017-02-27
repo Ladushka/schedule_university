@@ -13,7 +13,7 @@ class RequestScheduleButton extends React.Component {
 
 
     showSchedule() {
-        sessionStorage.setItem('student', JSON.stringify(this.props.request));
+        sessionStorage.setItem('user', JSON.stringify(this.props.request));
         this.props.router.push({
             pathname: '/schedule/' + this.props.request.faculty + '/' + this.props.request.group_number
         });

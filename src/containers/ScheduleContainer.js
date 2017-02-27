@@ -17,7 +17,7 @@ class ScheduleContainer extends React.Component {
         var url = localStorage.getItem('logged-in') == true ? (
                 'http://localhost:8080/lessons/faculty/' + localStorage.getItem('faculty') + '/group/' + localStorage.getItem('group')
             ) : (
-                'http://localhost:8080/lessons/faculty/' + JSON.parse(sessionStorage.getItem('student')).faculty + '/group/' + JSON.parse(sessionStorage.getItem('student')).group_number
+                'http://localhost:8080/lessons/faculty/' + JSON.parse(sessionStorage.getItem('user')).faculty + '/group/' + JSON.parse(sessionStorage.getItem('user')).group_number
             );
         fetch(url)
             .then(response => {
