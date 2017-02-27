@@ -43,6 +43,7 @@ class ProfileContainer extends React.Component {
     };
 
     render() {
+        console.log(this.state.isLoading)
         return this.state.isLoading === true ? (
                 <Profile />
             ) : (

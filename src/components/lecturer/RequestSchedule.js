@@ -4,7 +4,7 @@ import React from 'react';
 import {Page, Button, Toolbar, Input, List, ListItem} from 'react-onsenui';
 import SelectorDayOfWeek from './../SelectorDayOfWeek';
 import RequestScheduleButton from '../RequestScheduleButton';
-import Faculties from '../Faculties';
+import Faculties from '../student/Faculties';
 
 import {Typeahead} from 'react-bootstrap-typeahead';
 import 'react-select/dist/react-select.css';

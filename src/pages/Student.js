@@ -1,12 +1,12 @@
 'use strict';
 import React from 'react';
 
-import Faculties from '../components/Faculties';
-import NumberOfGroup from '../components/NumberOfGroup';
-import SubgroupNumber from '../components/SubgroupNumber';
+import Faculties from '../components/student/Faculties';
+import NumberOfGroup from '../components/student/NumberOfGroup';
+import SubgroupNumber from '../components/student/SubgroupNumber';
 import {Page} from 'react-onsenui';
 import FullName from '../components/FullName';
-import AddStudent from '../components/AddStudent';
+import AddStudent from '../components/student/AddStudent';
 
 class Student extends React.Component {
     constructor(props) {

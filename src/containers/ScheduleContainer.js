@@ -1,10 +1,10 @@
 'use strict';
 
 import React from 'react';
-import ScheduleStudent from './../pages/schedule/ScheduleStudent';
+import ScheduleStudent from '../pages/schedule/Schedule';
 import {Icon} from 'react-onsenui';
 
-class ScheduleStudentContainer extends React.Component {
+class ScheduleContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -14,7 +14,7 @@ class ScheduleStudentContainer extends React.Component {
     };
 
     componentDidMount() {
-        var url = localStorage.getItem('logged-in') === true ? (
+        var url = localStorage.getItem('logged-in') == true ? (
                 'http://localhost:8080/lessons/faculty/' + localStorage.getItem('faculty') + '/group/' + localStorage.getItem('group')
             ) : (
                 'http://localhost:8080/lessons/faculty/' + JSON.parse(sessionStorage.getItem('student')).faculty + '/group/' + JSON.parse(sessionStorage.getItem('student')).group_number
@@ -47,5 +47,5 @@ class ScheduleStudentContainer extends React.Component {
     };
 }
 ;
-module.exports = ScheduleStudentContainer;
+module.exports = ScheduleContainer;
 

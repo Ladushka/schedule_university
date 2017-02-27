@@ -29,6 +29,7 @@ class Profile extends React.Component {
     };
 
     render() {
+        console.log(this.state.user);
         return (
             <div>
 
@@ -44,9 +45,9 @@ class Profile extends React.Component {
                     </Toolbar>
 
                     <div className="card">
-
-                        <div
-                            className="card-name">{localStorage.getItem('role') === 'student' ? Student : Lecturer}</div>
+                        {localStorage.getItem('role') === 'student' ? (<div
+                                className="card-name">Student</div>) : (<div
+                                className="card-name">Lecturer</div>)}
                         <div className="card-desc">{this.state.user.login}<br/></div>
 
                     </div>
@@ -67,7 +68,7 @@ class Profile extends React.Component {
                                                     <Icon icon="ion-calendar"/>
                                                 </a>
                                             ) : (
-                                                null
+                                                <Icon icon="ion-calendar"/>
                                             )
                                     }
                                 </div>

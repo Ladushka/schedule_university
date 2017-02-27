@@ -17,7 +17,7 @@ class LogIn extends React.Component {
         console.log(this.props.response.login);
         if (this.props.response.logged_in === true) {
             this.props.router.push({
-                pathname: '/' + this.props.response.login
+                pathname: '/signIn/' + this.props.response.login
             });
         } else {
             this.setState({

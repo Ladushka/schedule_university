@@ -1,9 +1,9 @@
 'use strict';
 
 import React from 'react';
-import Faculties from './../Faculties';
-import NumberOfGroup from '../NumberOfGroup';
-import SubgroupNumber from '../SubgroupNumber';
+import Faculties from './Faculties';
+import NumberOfGroup from './NumberOfGroup';
+import SubgroupNumber from './SubgroupNumber';
 import SelectorDayOfWeek from '../SelectorDayOfWeek';
 import RequestScheduleButton from '../RequestScheduleButton';
 

@@ -1,39 +1,43 @@
 'use strict';
+
 import React from 'react';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
-const SUBGROUPS = require('./../data/data');
+import 'bootstrap/dist/css/bootstrap.css';
 
-class SubgroupNumber extends React.Component {
+const FACULTIES = require('../../data/data');
+
+class Faculties extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            subgroupSelection: ''
+            facultySelection: ''
         };
         this.updateValue = this.updateValue.bind(this);
     };
 
     updateValue(newValue) {
         this.setState({
-            subgroupSelection: newValue
+            facultySelection: newValue
         });
-        this.props.onChange({value: newValue.label, name: 'subgroup_number'});
+        this.props.onChange(newValue.label);
     };
 
     render() {
         return (
             <div className="section faculties">
                 <Select
-                    name="subgroup_number"
-                    value={this.state.subgroupSelection}
-                    options={SUBGROUPS['subgroups']}
+                    id='faculty'
+                    name="faculty"
+                    value={this.state.facultySelection}
+                    options={FACULTIES['faculties']}
                     onChange={this.updateValue}
                     clearable={false}
-                    placeholder='Subgroup number'
+                    placeholder='Faculty'
                 />
             </div>
         );
     };
 }
 ;
-module.exports = SubgroupNumber;
+module.exports = Faculties;
