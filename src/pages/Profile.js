@@ -31,9 +31,6 @@ class Profile extends React.Component {
 
                 <Page modifier="shop-details">
                     <Toolbar modifier="transparent">
-                        <div className="right">
-                            <ToolbarButton><Icon icon="ion-ios-chatboxes" style={{color: 'white'}}/></ToolbarButton>
-                        </div>
                         <div className="left">
                             <ToolbarButton><Icon icon="ion-arrow-left-c" style={{color: 'white', fontSize: 28 + 'px'}}
                                                  fixed-width="false"/></ToolbarButton>

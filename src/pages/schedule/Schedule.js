@@ -2,11 +2,11 @@
 import './../../../www/styles/schedule.css';
 import React from 'react';
 import {Page, Button, Toolbar, Input, List, Fab, Icon} from 'react-onsenui';
-import {browserHistory} from 'react-router';
 import Lesson from './components/Lesson'
 import StudentHeader from './components/StudentHeader'
 import LecturerHeader from './components/LecturerHeader'
 import SelectorDayOfWeek from './../../components/SelectorDayOfWeek'
+import SignOut from './../../components/SignOut'
 
 class ScheduleStudent extends React.Component {
     constructor(props) {
@@ -33,9 +33,7 @@ class ScheduleStudent extends React.Component {
     };
 
     goHome() {
-        browserHistory.push({
-            pathname: '/'
-        });
+        history.back()
     };
 
     handleChange(item) {
@@ -44,7 +42,6 @@ class ScheduleStudent extends React.Component {
         });
 
     };
-
 
     render() {
         var user = JSON.parse(localStorage.getItem('user'));
@@ -68,8 +65,9 @@ class ScheduleStudent extends React.Component {
                 <List class="plan-list"
                       dataSource={[1]}
                       renderRow={this.renderRow}/>
-                <Fab position='bottom right' className="fab" onClick={this.goHome}><Icon
+                <Fab position='bottom left' onClick={this.goHome()}><Icon
                     class="zmdi zmdi-home"/></Fab>
+                <SignOut/>
             </Page>
         );
     };

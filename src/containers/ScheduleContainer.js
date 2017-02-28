@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import ScheduleStudent from '../pages/schedule/Schedule';
+import Schedule from '../pages/schedule/Schedule';
 import {Icon} from 'react-onsenui';
 
 class ScheduleContainer extends React.Component {
@@ -46,7 +46,7 @@ class ScheduleContainer extends React.Component {
 
     render() {
         return this.state.isLoading === true ? (
-                <ScheduleStudent schedule={this.state.schedule}/>
+                <Schedule schedule={this.state.schedule}/>
             ) : (
                 <div><p>
                     <Icon style={{color: 'red'}} spin icon='md-spinner'/>
