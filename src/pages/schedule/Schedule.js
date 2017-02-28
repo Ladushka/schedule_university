@@ -21,7 +21,7 @@ class ScheduleStudent extends React.Component {
 
 
     renderRow(index) {
-        let day_of_week = localStorage.getItem('logged-in') == true ? this.state.day_of_week : JSON.parse(sessionStorage.getItem('user')).day_of_week;
+        let day_of_week = localStorage.getItem('logged-in') === 'true' ? this.state.day_of_week : JSON.parse(sessionStorage.getItem('user')).day_of_week;
         return this.props.schedule.map(item => {
             if (day_of_week === item.day_of_week) {
                 return (

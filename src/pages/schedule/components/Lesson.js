@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {ListItem, Row, Col, Icon} from 'react-onsenui';
-const SCHEDULE = require('../../data/data');
+const SCHEDULE = require('../../../data/data');
 
 class Lesson extends React.Component {
     constructor(props) {

@@ -14,10 +14,18 @@ class ScheduleContainer extends React.Component {
     };
 
     componentDidMount() {
-        var url = localStorage.getItem('logged-in') == true ? (
-                'http://localhost:8080/lessons/faculty/' + localStorage.getItem('faculty') + '/group/' + localStorage.getItem('group')
+        var url = localStorage.getItem('logged-in') === 'true' ? (
+                localStorage.getItem('role') === 'student' ? (
+                        'http://localhost:8080/lessons/faculty/' + localStorage.getItem('faculty') + '/group/' + localStorage.getItem('group')
+                    ) : (
+                        'http://localhost:8080/lessons/surname/' + JSON.parse(localStorage.getItem('user')).surname
+                    )
             ) : (
-                'http://localhost:8080/lessons/faculty/' + JSON.parse(sessionStorage.getItem('user')).faculty + '/group/' + JSON.parse(sessionStorage.getItem('user')).group_number
+                localStorage.getItem('role') === 'student' ? (
+                        'http://localhost:8080/lessons/faculty/' + JSON.parse(sessionStorage.getItem('user')).faculty + '/group/' + JSON.parse(sessionStorage.getItem('user')).group_number
+                    ) : (
+                        'http://localhost:8080/lessons/surname/' + JSON.parse(sessionStorage.getItem('user')).surname
+                    )
             );
         fetch(url)
             .then(response => {

@@ -20,16 +20,12 @@ import {
 class Profile extends React.Component {
     constructor(props) {
         super(props);
-        console.log(localStorage.getItem('user'));
         this.state = {
             user: JSON.parse(localStorage.getItem('user'))
-            // faculty: localStorage.getItem('faculty'),
-            // group: localStorage.getItem('group')
         };
     };
 
     render() {
-        console.log(this.state.user);
         return (
             <div>
 
@@ -45,10 +41,21 @@ class Profile extends React.Component {
                     </Toolbar>
 
                     <div className="card">
-                        {localStorage.getItem('role') === 'student' ? (<div
-                                className="card-name">Student</div>) : (<div
-                                className="card-name">Lecturer</div>)}
-                        <div className="card-desc">{this.state.user.login}<br/></div>
+                        {localStorage.getItem('role') === 'student' ? (
+                                <section>
+                                    <div
+                                        className="card-name">Student
+                                    </div>
+                                    < div className="card-desc"> {this.state.user.sdo}<br/></div>
+                                </section>
+                            ) : (
+                                <section>
+                                    <div
+                                        className="card-name">Lecturer
+                                    </div>
+                                    < div className="card-desc">{this.state.user.login}<br/></div>
+                                </section>
+                            )}
 
                     </div>
 
@@ -64,11 +71,13 @@ class Profile extends React.Component {
                                 <div className="action-icon">
                                     {
                                         localStorage.getItem('role') === 'student' ? (
-                                                <a href={`/schedule/${this.state.faculty}/${this.state.group}`}>
+                                                <a href={`/schedule/${this.state.user.group.faculty}/${this.state.user.group.number}`}>
                                                     <Icon icon="ion-calendar"/>
                                                 </a>
                                             ) : (
-                                                <Icon icon="ion-calendar"/>
+                                                <a href={`/schedule/${this.state.user.surname}`}>
+                                                    <Icon icon="ion-calendar"/>
+                                                </a>
                                             )
                                     }
                                 </div>

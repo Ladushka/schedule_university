@@ -16,34 +16,26 @@ class ProfileContainer extends React.Component {
     };
 
     componentDidMount() {
-        console.log('work!');
-        if (localStorage.getItem('role') != 'student') {
+        let url = localStorage.getItem('role') != 'student' ? 'http://localhost:8080/lecturers/login/' + this.props.routeParams.login : 'http://localhost:8080/students/sdo/' + this.props.routeParams.login;
+        fetch(url)
+            .then(response => {
+                return response.text();
+            })
+            .then(text => {
+                console.log('Request successful', text);
+                localStorage.setItem('user', JSON.stringify(JSON.parse(text)));
+                this.setState({
+                    user: JSON.parse(text),
+                    isLoading: true
+                });
+            })
+            .catch(error => {
+                console.log('Request failed', error)
+            });
 
-            fetch('http://localhost:8080/lecturers/login/' + this.props.routeParams.login)
-                .then(response => {
-                    return response.text();
-                })
-                .then(text => {
-                    console.log('Request successful', text);
-                    localStorage.setItem('user', JSON.stringify(JSON.parse(text)));
-                    this.setState({
-                        user: JSON.parse(text),
-                        isLoading: true
-                    });
-                })
-                .catch(error => {
-                    console.log('Request failed', error)
-                })
-        }
-
-        /*
-         загрузи студента по sdo_id
-         не забудь про localStorage
-         */
     };
 
     render() {
-        console.log(this.state.isLoading)
         return this.state.isLoading === true ? (
                 <Profile />
             ) : (
