@@ -5,7 +5,7 @@ import React from 'react';
 import {Button} from 'react-onsenui';
 import {withRouter} from 'react-router';
 
-class RequestScheduleButton extends React.Component {
+class ShowSchedule extends React.Component {
     constructor(props) {
         super(props);
         this.showSchedule = this.showSchedule.bind(this);
@@ -13,7 +13,9 @@ class RequestScheduleButton extends React.Component {
 
 
     showSchedule() {
-        sessionStorage.setItem('user', JSON.stringify(this.props.request));
+        delete this.props.request.user.faculties;
+        sessionStorage.setItem('user', JSON.stringify(this.props.request.user));
+        sessionStorage.setItem('day_of_week',JSON.stringify(this.props.request.day_of_week));
         this.props.router.push({
             pathname: '/schedule/' + this.props.request.faculty + '/' + this.props.request.group_number
         });
@@ -29,4 +31,4 @@ class RequestScheduleButton extends React.Component {
 
 }
 ;
-module.exports = withRouter(RequestScheduleButton);
+module.exports = withRouter(ShowSchedule);

@@ -4,25 +4,26 @@ import React from 'react';
 import Faculties from './Faculties';
 import NumberOfGroup from './NumberOfGroup';
 import SubgroupNumber from './SubgroupNumber';
-import SelectorDayOfWeek from '../SelectorDayOfWeek';
-import RequestScheduleButton from '../RequestScheduleButton';
 
-class RequestScheduleStudent extends React.Component {
+class StudentInformation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            faculty: '',
-            number: '',
-            subgroup_number: '',
-            day_of_week: '',
             faculties: [{value: '', label: ''}],
         };
-        this.handleFacultyChange = this.handleFacultyChange.bind(this);
 
+        this.handleFacultiesChange = this.handleFacultiesChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
     };
 
-    handleFacultyChange(value) {
+    handleChange(item) {
+        this.setState({
+            [item.name]: item.value
+        });
+        this.props.onChange(this.state);
+    };
+
+    handleFacultiesChange(value) {
         this.setState({faculty: value});
         fetch('http://localhost:8080/groups/faculty/' + value)
             .then(response => {
@@ -41,24 +42,15 @@ class RequestScheduleStudent extends React.Component {
             });
     };
 
-    handleChange(item) {
-        this.setState({
-            [item.name]: item.value
-        });
-    };
-
     render() {
         return (
             <section style={{textAlign: 'center'}}>
-                <Faculties onChange={this.handleFacultyChange}/>
+                <Faculties onChange={this.handleFacultiesChange}/>
                 <NumberOfGroup onChange={this.handleChange} options={this.state.faculties}/>
                 <SubgroupNumber onChange={this.handleChange}/>
-                <SelectorDayOfWeek onChange={this.handleChange}/>
-                <RequestScheduleButton request={this.state}/>
             </section>
         );
-    };
+    }
 }
 ;
-module.exports = RequestScheduleStudent;
-
+module.exports = StudentInformation;

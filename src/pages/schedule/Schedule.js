@@ -8,7 +8,8 @@ import LecturerHeader from './components/LecturerHeader'
 import SelectorDayOfWeek from './../../components/SelectorDayOfWeek'
 import SignOut from './../../components/SignOut'
 
-class ScheduleStudent extends React.Component {
+
+class Schedule extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -21,11 +22,11 @@ class ScheduleStudent extends React.Component {
 
 
     renderRow(index) {
-        let day_of_week = localStorage.getItem('logged-in') === 'true' ? this.state.day_of_week : JSON.parse(sessionStorage.getItem('user')).day_of_week;
+        let day_of_week = localStorage.getItem('logged-in') === 'true' ? this.state.day_of_week : JSON.parse(sessionStorage.getItem('day_of_week'));
         return this.props.schedule.map(item => {
             if (day_of_week === item.day_of_week) {
                 return (
-                    <Lesson onChange={this.handleChange} lesson={item} index={index}/>
+                    <Lesson lesson={item} index={index}/>
                 );
             }
         });
@@ -44,8 +45,8 @@ class ScheduleStudent extends React.Component {
     };
 
     render() {
-        var user = JSON.parse(localStorage.getItem('user'));
-        var userName = user.surname + ' ' + user.surname.charAt(0) + '.' + user.patronymic.charAt(0) + '.';
+       // var user = JSON.parse(localStorage.getItem('user'));
+       // var userName = user.surname + ' ' + user.surname.charAt(0) + '.' + user.patronymic.charAt(0) + '.';
         return (
             <Page>
                 <div className="navigation-bar">
@@ -53,7 +54,7 @@ class ScheduleStudent extends React.Component {
                         { localStorage.getItem('logged-in') == true ?
                             (
                                 localStorage.getItem('role') === 'student' ? <StudentHeader/> :
-                                    <LecturerHeader userName={userName}/>
+                                    <LecturerHeader userName=""/>
                             ) : (
                                 null
                             )
@@ -73,4 +74,4 @@ class ScheduleStudent extends React.Component {
     };
 }
 ;
-module.exports = ScheduleStudent;
+module.exports = Schedule;

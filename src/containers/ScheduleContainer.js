@@ -9,13 +9,12 @@ class ScheduleContainer extends React.Component {
         super(props);
         this.state = {
             schedule: '',
-            isLoading: false
+            isLoading: false,
+            user: sessionStorage.getItem('user')
         }
     };
 
     componentDidMount() {
-        console.log(JSON.parse(localStorage.getItem('user')));
-
         var url = localStorage.getItem('logged-in') == 'true' ? (
                 localStorage.getItem('role') == 'student' ? (
                         'http://localhost:8080/lessons/faculty/' + localStorage.getItem('faculty') + '/group/' + localStorage.getItem('group')
@@ -23,12 +22,13 @@ class ScheduleContainer extends React.Component {
                         'http://localhost:8080/lessons/surname/' + JSON.parse(localStorage.getItem('user')).surname
                     )
             ) : (
-                localStorage.getItem('role') === 'student' ? (
+                sessionStorage.getItem('role') == 'student' ? (
                         'http://localhost:8080/lessons/faculty/' + JSON.parse(sessionStorage.getItem('user')).faculty + '/group/' + JSON.parse(sessionStorage.getItem('user')).group_number
                     ) : (
                         'http://localhost:8080/lessons/surname/' + JSON.parse(sessionStorage.getItem('user')).surname
                     )
             );
+        console.log(url);
         fetch(url)
             .then(response => {
                 return response.text();
