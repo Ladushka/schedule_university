@@ -57,18 +57,19 @@ class AddUser extends React.Component {
              */
         }
         console.log(user);
-        addUser(user);
-        // fetch('http://localhost:8080/users', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(user)
-        // });
+        //addUser(user);
+        localStorage.setItem('role', user.role);
+        fetch('http://localhost:8080/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        });
         event.preventDefault();
 
         this.props.router.push({
-            pathname: user.role === 'stedent' ? '/student/' + this.props.user.sdo_id : '/profile'
+            pathname: user.role == 'student' ? '/student/' + this.props.user.sdo_id : '/signIn/' + this.props.user.login
         });
     };
 

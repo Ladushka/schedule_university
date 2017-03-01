@@ -12,11 +12,7 @@ class SignUp extends React.Component {
         super(props);
         this.state = {
             id: 0,
-            login: '',
-            sdo_id: '',
-            password: '',
-            role: 'student',
-            lecturer: []
+            role: 'student'
 
         };
         this.handleUserTypeChange = this.handleUserTypeChange.bind(this);
@@ -34,7 +30,7 @@ class SignUp extends React.Component {
     handleLoginChange(value) {
         this.state.role === 'student' ? (
                 this.setState({
-                    sdo_id: value,
+                    sdo: value,
                     login: value
                 })
             ) : (

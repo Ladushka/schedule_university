@@ -11,13 +11,13 @@ class ShowSchedule extends React.Component {
         this.showSchedule = this.showSchedule.bind(this);
     };
 
-
     showSchedule() {
+        console.log(this.props.request);
         delete this.props.request.user.faculties;
         sessionStorage.setItem('user', JSON.stringify(this.props.request.user));
-        sessionStorage.setItem('day_of_week',JSON.stringify(this.props.request.day_of_week));
+        sessionStorage.setItem('day_of_week', JSON.stringify(this.props.request.day_of_week));
         this.props.router.push({
-            pathname: '/schedule/' + this.props.request.faculty + '/' + this.props.request.group_number
+            pathname: '/scheduleContainer'
         });
     };
 

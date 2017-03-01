@@ -1,9 +1,7 @@
 'use strict';
 import React from 'react';
 
-import Faculties from '../components/student/Faculties';
-import NumberOfGroup from '../components/student/NumberOfGroup';
-import SubgroupNumber from '../components/student/SubgroupNumber';
+import StudentInformation from '../components/student/StudentInformation';
 import {Page} from 'react-onsenui';
 import FullName from '../components/FullName';
 import AddStudent from '../components/student/AddStudent';
@@ -13,25 +11,17 @@ class Student extends React.Component {
         super(props);
         this.state = {
             id: 0,
-            name: '',
-            surname: '',
-            patronymic: '',
-            faculties: [{value: '', label: ''}],
-            faculty: '',
-            group_number: '',
-            group_id: '',
-            subgroup_number: '',
             sdo_id: this.props.routeParams.sdoId
         };
-        this.handleFacultiesChange = this.handleFacultiesChange.bind(this);
+        //this.handleFacultiesChange = this.handleFacultiesChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleFullNameChange = this.handleFullNameChange.bind(this);
     };
 
     handleChange(item) {
-        //console.log(this.props.routeParams.sdoId);
+        console.log(this.state);
         this.setState({
-            [item.name]: item.value
+            inf: item
         });
         if (item.name == 'group_number') {
             localStorage.setItem('group', item.value);
@@ -54,32 +44,10 @@ class Student extends React.Component {
     };
 
     handleFullNameChange(item) {
+        //console.log(this.state);
         this.setState({
-            [item.name]: item.value
+            fullName: item
         });
-    };
-
-    handleFacultiesChange(value) {
-        this.setState({
-            faculty: value
-        });
-        localStorage.setItem('faculty', value);
-        fetch('http://localhost:8080/groups/faculty/' + value)
-            .then(response => {
-                return response.text();
-            })
-            .then(text => {
-                console.log('Request successful', text);
-                this.setState({
-                    faculties: JSON.parse(text).map(item => {
-                        return {value: item.number, label: item.number}
-                    })
-                });
-            })
-            .catch(function (error) {
-                console.log('Request failed', error)
-            });
-
     };
 
     render() {
@@ -87,10 +55,8 @@ class Student extends React.Component {
             <Page>
                 <section style={{textAlign: 'center'}}>
                     <FullName onChange={this.handleFullNameChange}/>
-                    <Faculties onChange={this.handleFacultiesChange}/>
-                    <NumberOfGroup onChange={this.handleChange} options={this.state.faculties}/>
-                    <SubgroupNumber onChange={this.handleChange}/>
-                    <AddStudent student={this.state}/>
+                    <StudentInformation onChange={this.handleChange}/>
+                    <AddStudent user={this.state}/>
                 </section>
             </Page>
         );

@@ -25,6 +25,7 @@ ReactDOM.render((
                 <Route path="/" component={Main}/>
                 <Route path="/schedule/:facultyId/:groupId" component={ScheduleContainer}/>
                 <Route path="/schedule/:surname" component={ScheduleContainer}/>
+                <Route path="/scheduleContainer" component={ScheduleContainer}/>
                 <Route path="/about" component={App}/>
                 <Route path="/withoutRegistration" component={WithoutRegistration}/>
                 <Route path="/signUp" component={SignUp}/>
