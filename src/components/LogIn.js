@@ -16,6 +16,7 @@ class LogIn extends React.Component {
     handleClick() {
         console.log(this.props.response.login);
         if (this.props.response.logged_in === true) {
+            localStorage.setItem('logged-in',true);
             this.props.router.push({
                 pathname: '/signIn/' + this.props.response.login
             });

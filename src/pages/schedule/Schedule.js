@@ -33,7 +33,7 @@ class ScheduleStudent extends React.Component {
     };
 
     goHome() {
-        history.back()
+        history.back();
     };
 
     handleChange(item) {
@@ -65,7 +65,7 @@ class ScheduleStudent extends React.Component {
                 <List class="plan-list"
                       dataSource={[1]}
                       renderRow={this.renderRow}/>
-                <Fab position='bottom left' onClick={this.goHome()}><Icon
+                <Fab position='bottom left' onClick={this.goHome}><Icon
                     class="zmdi zmdi-home"/></Fab>
                 <SignOut/>
             </Page>

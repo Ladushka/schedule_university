@@ -1,7 +1,6 @@
 {
-  "name": "onsenui-v2-react-minimum",
-  "version": "2.2.2+20161024.1",
-  "description": "",
+  "name": "s1",
+  "version": "2.2.2",
   "dependencies": {
     "onsenui": "^2.0.0-rc.5",
     "react": "^15.0.2",
@@ -11,8 +10,26 @@
   },
   "devDependencies": {
     "bootstrap": "^3.3.7",
+    "http-server": "^0.9.0",
     "react-bootstrap": "^0.30.7",
     "react-bootstrap-typeahead": "^1.0.0-beta5",
-    "react-select": "^1.0.0-rc.3"
-  }
+    "react-select": "^1.0.0-rc.3",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
+  },
+  "main": "webpack.dev.config.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ladushka/schedule_university.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ladushka/schedule_university/issues"
+  },
+  "homepage": "https://github.com/Ladushka/schedule_university#readme",
+  "description": ""
 }
