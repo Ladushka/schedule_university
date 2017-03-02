@@ -14,17 +14,18 @@ class SubgroupNumber extends React.Component {
     };
 
     updateValue(newValue) {
+        console.log(newValue.label);
         this.setState({
             subgroupSelection: newValue
         });
-        this.props.onChange({value: newValue.label, name: 'subgroup_number'});
+        this.props.onChange({value: newValue.label, name: 'subgroup'});
     };
 
     render() {
         return (
             <div className="section faculties">
                 <Select
-                    name="subgroup_number"
+                    name="subgroup"
                     value={this.state.subgroupSelection}
                     options={SUBGROUPS['subgroups']}
                     onChange={this.updateValue}

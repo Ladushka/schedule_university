@@ -11,8 +11,7 @@ class ProfileContainer extends React.Component {
         this.state = {
             isLoading: false,
             user: ''
-        }
-
+        };
     };
 
     componentDidMount() {
@@ -36,9 +35,10 @@ class ProfileContainer extends React.Component {
 
     };
 
+
     render() {
         return this.state.isLoading === true ? (
-                <Profile />
+                <Profile/>
             ) : (
                 <div><p>
                     <Icon style={{color: 'red'}} spin icon='md-spinner'/>

@@ -9,6 +9,7 @@ class StudentInformation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            subgroup:'',
             faculties: [{value: '', label: ''}],
         };
 
@@ -17,14 +18,11 @@ class StudentInformation extends React.Component {
     };
 
     handleChange(item) {
-        this.setState({
-            [item.name]: item.value
-        });
-        this.props.onChange(this.state);
+        sessionStorage.setItem(item.name,item.value);
     };
 
     handleFacultiesChange(value) {
-        this.setState({faculty: value});
+        sessionStorage.setItem('faculty',value);
         fetch('http://localhost:8080/groups/faculty/' + value)
             .then(response => {
                 return response.text();

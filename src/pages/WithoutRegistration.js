@@ -25,11 +25,6 @@ class Unregisted extends React.Component {
         );
     };
 
-    componentDidMount() {
-        localStorage.clear();
-        localStorage.setItem('logged-in', false);
-    };
-
     userTypeChange(value) {
         this.setState({selectedItem: value});
     };

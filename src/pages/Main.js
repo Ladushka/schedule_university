@@ -11,6 +11,11 @@ class Main extends React.Component {
         this.withoutRegistration = this.withoutRegistration.bind(this);
     };
 
+    componentDidMount() {
+        localStorage.clear();
+        localStorage.setItem('logged-in', false);
+    };
+
     signIn() {
         this.props.router.push({
             pathname: '/signIn'
