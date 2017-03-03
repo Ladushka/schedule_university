@@ -2,7 +2,7 @@
 import React from 'react';
 import {Button} from 'react-onsenui';
 import {withRouter} from 'react-router'
-import AddStudentContainer from './../../containers/AddStudentContainer'
+import StudentService from '../../services/StudentService'
 
 class AddStudent extends React.Component {
     constructor(props) {
@@ -17,6 +17,7 @@ class AddStudent extends React.Component {
         this.setState({
             onClick: true
         });
+
         delete this.props.user.faculties;
 
         for (let item in this.props.user.fullName) {
@@ -24,20 +25,12 @@ class AddStudent extends React.Component {
                 [item]: this.props.user.fullName[item]
             });
         }
-        ;
+
         this.setState({
-            id:0,
+            id: 0,
             sdo: this.props.user.sdo,
             subgroup: sessionStorage.getItem('subgroup')
         });
-
-        // localStorage.setItem('student', JSON.stringify(this.props.student));
-        // localStorage.setItem('logged-in',true);
-        // event.preventDefault();
-        //
-        // this.props.router.push({
-        //     pathname: '/profile/'
-        // });
     };
 
     render() {
@@ -47,7 +40,7 @@ class AddStudent extends React.Component {
                     <Button className='button-request' onClick={this.handleSubmit}>Save</Button>
                 </p>
                 {
-                    this.state.onClick == true ? <AddStudentContainer student={this.state}/> : (null)
+                    this.state.onClick == true ? <StudentService student={this.state}/> : (null)
                 }
             </section>
         );

@@ -13,7 +13,7 @@ import App from './App';
 import Main from './pages/Main';
 import ScheduleContainer from './containers/ScheduleContainer';
 import SignUp from './pages/SignUp';
-import Student from './pages/Student';
+import StudentForm from './pages/StudentForm';
 import SignIn from './pages/SignIn';
 import WithoutRegistration from './pages/WithoutRegistration';
 import ProfileContainer from './pages/../containers/ProfileContainer';
@@ -32,7 +32,7 @@ ReactDOM.render((
                 <Route path="/signIn" component={SignIn}/>
                 <Route path='/signIn/:login' component={ProfileContainer}/>
 
-                <Route path="/student/:sdoId" component={Student}/>
+                <Route path="/student/:sdoId" component={StudentForm}/>
 
             </Router>
         </div>

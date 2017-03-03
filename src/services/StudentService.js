@@ -1,11 +1,10 @@
 'use strict';
 
 import React from 'react';
-import ProfileContainer from './../containers/ProfileContainer';
-import {Icon} from 'react-onsenui';
+import {Icon, AlertDialog, Button} from 'react-onsenui';
 import {withRouter} from 'react-router'
 
-class AddStudentContainer extends React.Component {
+class StudentService extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.props.student;
@@ -34,7 +33,10 @@ class AddStudentContainer extends React.Component {
             });
     }
 
-    handleClick(){
+    handleClick() {
+        localStorage.setItem('user', this.state);
+        localStorage.setItem('role', 'student');
+        localStorage.setItem('logged-in', true);
         this.props.router.push({
             pathname: '/signIn/' + this.state.sdo
         });
@@ -56,6 +58,7 @@ class AddStudentContainer extends React.Component {
             })
             .then(() => {
                 this.addStudent();
+                this.state.dialogShown = true;
             })
             .catch(function (error) {
                 console.log('Request failed', error)
@@ -84,4 +87,4 @@ class AddStudentContainer extends React.Component {
 
 }
 ;
-module.exports = withRouter(AddStudentContainer);
+module.exports = withRouter(StudentService);

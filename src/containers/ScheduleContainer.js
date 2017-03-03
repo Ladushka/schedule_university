@@ -23,7 +23,7 @@ class ScheduleContainer extends React.Component {
                     )
             ) : (
                 sessionStorage.getItem('role') == 'student' ? (
-                        'http://localhost:8080/lessons/faculty/' + JSON.parse(sessionStorage.getItem('user')).faculty + '/group/' + JSON.parse(sessionStorage.getItem('user')).group_number
+                        'http://localhost:8080/lessons/faculty/' + sessionStorage.getItem('faculty') + '/group/' + sessionStorage.getItem('group_number')
                     ) : (
                         'http://localhost:8080/lessons/surname/' + JSON.parse(sessionStorage.getItem('user')).surname
                     )
