@@ -45,8 +45,6 @@ class Schedule extends React.Component {
     };
 
     render() {
-       // var user = JSON.parse(localStorage.getItem('user'));
-       // var userName = user.surname + ' ' + user.surname.charAt(0) + '.' + user.patronymic.charAt(0) + '.';
         return (
             <Page>
                 <div className="navigation-bar">
