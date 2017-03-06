@@ -3,8 +3,6 @@ import './../../../www/styles/schedule.css';
 import React from 'react';
 import {Page, Button, Toolbar, Input, List, Fab, Icon} from 'react-onsenui';
 import Lesson from './components/Lesson';
-import StudentHeader from './components/StudentHeader';
-import LecturerHeader from './components/LecturerHeader';
 import SelectorDayOfWeek from './../../components/SelectorDayOfWeek';
 import SignOut from './../../components/SignOut';
 import Back from './../../components/Back';
@@ -38,7 +36,9 @@ class Schedule extends React.Component {
         return this.props.schedule.map(item => {
             if ((day_of_week === item.day_of_week) && ((subgroup == item.subgroup) || (item.subgroup == 0))) {
                 return (
-                    <Lesson lesson={item} index={index}/>
+                    <section>
+                        <Lesson lesson={item} index={index}/>
+                    </section>
                 );
             }
         });
@@ -57,14 +57,6 @@ class Schedule extends React.Component {
             <Page>
                 <div className="navigation-bar">
                     <div className="navigation-bar__center">
-                        { localStorage.getItem('logged-in') == true ?
-                            (
-                                localStorage.getItem('role') === 'student' ? <StudentHeader/> :
-                                    <LecturerHeader userName=""/>
-                            ) : (
-                                null
-                            )
-                        }
                         <SelectorDayOfWeek onChange={this.handleChange}/>
                     </div>
                 </div>

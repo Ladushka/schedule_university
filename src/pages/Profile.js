@@ -31,13 +31,6 @@ class Profile extends React.Component {
             <div>
 
                 <Page modifier="shop-details">
-                    <Toolbar modifier="transparent">
-                        <div className="left">
-                            <ToolbarButton><Icon icon="ion-arrow-left-c" style={{color: 'white', fontSize: 28 + 'px'}}
-                                                 fixed-width="false"/></ToolbarButton>
-                        </div>
-                    </Toolbar>
-
                     <div className="card">
                         {localStorage.getItem('role') === 'student' ? (
                                 <section>
