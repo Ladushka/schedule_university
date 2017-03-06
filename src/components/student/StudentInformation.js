@@ -48,7 +48,7 @@ class StudentInformation extends React.Component {
                 <SubgroupNumber onChange={this.handleChange}/>
             </section>
         );
-    }
+    };
 }
 ;
 module.exports = StudentInformation;

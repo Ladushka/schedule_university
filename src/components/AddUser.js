@@ -2,9 +2,9 @@
 
 import React from 'react';
 import {Button} from 'react-onsenui';
-import {withRouter} from 'react-router'
+import {withRouter} from 'react-router';
 
-import UserService from '../services/UserService'
+import UserService from '../services/UserService';
 
 
 class AddUser extends React.Component {
@@ -35,7 +35,7 @@ class AddUser extends React.Component {
             </section>
 
         );
-    }
+    };
 }
 ;
 module.exports = withRouter(AddUser);

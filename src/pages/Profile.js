@@ -16,6 +16,7 @@ import {
     Tab,
     Button
 } from 'react-onsenui';
+import SignOut from './../components/SignOut';
 
 class Profile extends React.Component {
     constructor(props) {
@@ -104,7 +105,7 @@ class Profile extends React.Component {
                             </div>
                         </ListItem>
                     </List>
-
+                    <SignOut/>
                 </Page>
             </div>
         );

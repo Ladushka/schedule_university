@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import LogIn from './../components/LogIn'
+import LogIn from './../components/LogIn';
 
 class LogInContainer extends React.Component {
     constructor(props) {

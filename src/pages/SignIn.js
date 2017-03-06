@@ -3,7 +3,7 @@
 import React from 'react';
 import {Page, Toolbar, Input, Button} from 'react-onsenui';
 import LogInContainer from './../containers/LogInContainer';
-import Password from './../components/Password'
+import Password from './../components/Password';
 
 class SignIn extends React.Component {
     constructor(props) {

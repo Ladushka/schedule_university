@@ -2,12 +2,12 @@
 import './../../../www/styles/schedule.css';
 import React from 'react';
 import {Page, Button, Toolbar, Input, List, Fab, Icon} from 'react-onsenui';
-import Lesson from './components/Lesson'
-import StudentHeader from './components/StudentHeader'
-import LecturerHeader from './components/LecturerHeader'
-import SelectorDayOfWeek from './../../components/SelectorDayOfWeek'
-import SignOut from './../../components/SignOut'
-import Back from './../../components/Back'
+import Lesson from './components/Lesson';
+import StudentHeader from './components/StudentHeader';
+import LecturerHeader from './components/LecturerHeader';
+import SelectorDayOfWeek from './../../components/SelectorDayOfWeek';
+import SignOut from './../../components/SignOut';
+import Back from './../../components/Back';
 
 
 class Schedule extends React.Component {
@@ -20,7 +20,6 @@ class Schedule extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.renderRow = this.renderRow.bind(this);
     };
-
 
     renderRow(index) {
         let day_of_week, subgroup;
@@ -35,7 +34,7 @@ class Schedule extends React.Component {
                 subgroup = sessionStorage.getItem('subgroup');
             }
         }
-        
+
         return this.props.schedule.map(item => {
             if ((day_of_week === item.day_of_week) && ((subgroup == item.subgroup) || (item.subgroup == 0))) {
                 return (
@@ -69,7 +68,6 @@ class Schedule extends React.Component {
                         <SelectorDayOfWeek onChange={this.handleChange}/>
                     </div>
                 </div>
-
                 <List class="plan-list"
                       dataSource={[1]}
                       renderRow={this.renderRow}/>

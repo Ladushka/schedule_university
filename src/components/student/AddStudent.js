@@ -1,8 +1,8 @@
 'use strict';
 import React from 'react';
 import {Button} from 'react-onsenui';
-import {withRouter} from 'react-router'
-import StudentService from '../../services/StudentService'
+import {withRouter} from 'react-router';
+import StudentService from '../../services/StudentService';
 
 class AddStudent extends React.Component {
     constructor(props) {

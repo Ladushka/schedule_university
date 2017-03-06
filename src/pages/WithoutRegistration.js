@@ -4,7 +4,8 @@ import SelectorDayOfWeek from  '../components/SelectorDayOfWeek';
 import StudentInformation from  '../components/student/StudentInformation';
 import FullName from  '../components/FullName';
 import UserType from '../components/UserType';
-import ShowSchedule from '../components/ShowSchedule'
+import ShowSchedule from '../components/ShowSchedule';
+
 class Unregisted extends React.Component {
     constructor(props) {
         super(props);

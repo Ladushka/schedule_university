@@ -34,7 +34,7 @@ class SdoId extends React.Component {
                 />
             </p>
         );
-    }
+    };
 }
 ;
 module.exports = SdoId;

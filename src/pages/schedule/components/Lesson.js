@@ -7,8 +7,6 @@ const SCHEDULE = require('../../../data/data');
 class Lesson extends React.Component {
     constructor(props) {
         super(props);
-
-
     };
 
     render() {

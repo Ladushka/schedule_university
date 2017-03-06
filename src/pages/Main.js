@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react';
 import {Page, Button} from 'react-onsenui';
-import {withRouter} from 'react-router'
+import {withRouter} from 'react-router';
 
 class Main extends React.Component {
     constructor(props) {
