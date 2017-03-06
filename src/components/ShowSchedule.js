@@ -12,10 +12,10 @@ class ShowSchedule extends React.Component {
     };
 
     showSchedule() {
+        sessionStorage.setItem('day_of_week', JSON.stringify(this.props.request.day_of_week));
         if (sessionStorage.getItem('role') == 'lecturer') {
             delete this.props.request.user.faculties;
             sessionStorage.setItem('user', JSON.stringify(this.props.request.user));
-            sessionStorage.setItem('day_of_week', JSON.stringify(this.props.request.day_of_week));
         }
         this.props.router.push({
             pathname: '/scheduleContainer'

@@ -23,9 +23,21 @@ class Schedule extends React.Component {
 
 
     renderRow(index) {
-        let day_of_week = localStorage.getItem('logged-in') === 'true' ? this.state.day_of_week : JSON.parse(sessionStorage.getItem('day_of_week'));
+        let day_of_week, subgroup;
+        if (localStorage.getItem('logged-in') === 'true') {
+            day_of_week = this.state.day_of_week;
+            if (localStorage.getItem('role') == 'student') {
+                subgroup = JSON.parse(localStorage.getItem('user')).subgroup;
+            }
+        } else {
+            day_of_week = JSON.parse(sessionStorage.getItem('day_of_week'));
+            if (sessionStorage.getItem('role') == 'student') {
+                subgroup = sessionStorage.getItem('subgroup');
+            }
+        }
+        
         return this.props.schedule.map(item => {
-            if (day_of_week === item.day_of_week) {
+            if ((day_of_week === item.day_of_week) && ((subgroup == item.subgroup) || (item.subgroup == 0))) {
                 return (
                     <Lesson lesson={item} index={index}/>
                 );

@@ -3,6 +3,7 @@
 import React from 'react';
 import {Page, Toolbar, Input, Button} from 'react-onsenui';
 import LogInContainer from './../containers/LogInContainer';
+import Password from './../components/Password'
 
 class SignIn extends React.Component {
     constructor(props) {
@@ -14,6 +15,7 @@ class SignIn extends React.Component {
             onClick: false
         };
 
+        this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
     };
@@ -24,6 +26,12 @@ class SignIn extends React.Component {
             onClick: false
         });
 
+    };
+
+    handlePasswordChange(value) {
+        this.setState({
+            password: value
+        });
     };
 
     renderToolbar() {
@@ -52,16 +60,7 @@ class SignIn extends React.Component {
                         float
                         placeholder='Login / Sdo_id'/>
                 </p>
-                <p>
-                    <Input
-                        name="password"
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                        modifier='underbar'
-                        type='password'
-                        float
-                        placeholder='Password'/>
-                </p>
+                <Password onChange={this.handlePasswordChange}/>
                 <p>
                     <Button onClick={this.handleClick}>Sign in</Button>
                 </p>
