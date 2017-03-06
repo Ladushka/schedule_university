@@ -14,7 +14,6 @@ class SubgroupNumber extends React.Component {
     };
 
     updateValue(newValue) {
-        console.log(newValue.label);
         this.setState({
             subgroupSelection: newValue
         });

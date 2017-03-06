@@ -7,6 +7,7 @@ import StudentHeader from './components/StudentHeader'
 import LecturerHeader from './components/LecturerHeader'
 import SelectorDayOfWeek from './../../components/SelectorDayOfWeek'
 import SignOut from './../../components/SignOut'
+import Back from './../../components/Back'
 
 
 class Schedule extends React.Component {
@@ -31,10 +32,6 @@ class Schedule extends React.Component {
             }
         });
 
-    };
-
-    goHome() {
-        history.back();
     };
 
     handleChange(item) {
@@ -64,8 +61,7 @@ class Schedule extends React.Component {
                 <List class="plan-list"
                       dataSource={[1]}
                       renderRow={this.renderRow}/>
-                <Fab position='bottom left' onClick={this.goHome}><Icon
-                    class="zmdi zmdi-home"/></Fab>
+                <Back/>
                 <SignOut/>
             </Page>
         );

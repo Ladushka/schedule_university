@@ -18,7 +18,7 @@ class LectureService extends React.Component {
         var lecturer = JSON.parse(JSON.stringify(this.props.lecturer));
         lecturer.login = this.props.lecturer.surname + this.props.lecturer.name.charAt(0) + this.props.lecturer.patronymic.charAt(0);
         lecturer.lecture_id = 0;
-        console.log(lecturer);
+        //console.log(lecturer);
         fetch('http://localhost:8080/lecturers', {
 
             method: 'POST',
@@ -30,7 +30,8 @@ class LectureService extends React.Component {
             .then(data => {
                 console.log('Request succeeded with JSON response', data);
                 this.setState({
-                    isLoading: true
+                    isLoading: true,
+                    lecturer:lecturer
                 });
             })
             .catch(function (error) {
@@ -39,11 +40,11 @@ class LectureService extends React.Component {
     }
 
     handleClick() {
-        localStorage.setItem('user', this.state);
+        localStorage.setItem('user', this.state.lecturer);
         localStorage.setItem('role', 'lecturer');
         localStorage.setItem('logged-in', true);
         this.props.router.push({
-            pathname: '/signIn/' + this.state.login
+            pathname: '/signIn/' + this.state.lecturer.login
         });
     };
 

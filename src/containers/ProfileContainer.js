@@ -16,7 +16,6 @@ class ProfileContainer extends React.Component {
 
     componentDidMount() {
         let url = localStorage.getItem('role') == 'student' ? 'http://localhost:8080/students/sdo/' + this.props.routeParams.login : 'http://localhost:8080/lecturers/login/' + this.props.routeParams.login;
-        console.log(url);
         fetch(url)
             .then(response => {
                 return response.text();

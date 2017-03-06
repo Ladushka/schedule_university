@@ -28,7 +28,6 @@ class ScheduleContainer extends React.Component {
                         'http://localhost:8080/lessons/surname/' + JSON.parse(sessionStorage.getItem('user')).surname
                     )
             );
-        console.log(url);
         fetch(url)
             .then(response => {
                 return response.text();

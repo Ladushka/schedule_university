@@ -20,8 +20,6 @@ class UserType extends React.Component {
     handleItemChange(item) {
         this.setState({selectedItem: item});
         this.props.onChange(item);
-        //  document.getElementsByName('password')[1].value = '';
-        //  document.getElementById('login').value = '';
     };
 
     renderRadioRow(row) {

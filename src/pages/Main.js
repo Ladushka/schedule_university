@@ -12,7 +12,8 @@ class Main extends React.Component {
     };
 
     componentDidMount() {
-        localStorage.clear();
+        localStorage.clear()
+        sessionStorage.clear();
         localStorage.setItem('logged-in', false);
     };
 
