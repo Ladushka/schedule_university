@@ -17,10 +17,15 @@ class Schedule extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.renderRow = this.renderRow.bind(this);
+        this.compareLesson = this.compareLesson.bind(this);
     };
 
+    compareLesson(lesson1, lesson2) {
+        return lesson1.number_of_lesson < lesson2.number_of_lesson ? lesson1.number_of_lesson : lesson2.number_of_lesson;
+    }
+
     renderRow(index) {
-        let day_of_week, subgroup;
+        let day_of_week, subgroup, schedule;
         if (localStorage.getItem('logged-in') === 'true') {
             day_of_week = this.state.day_of_week;
             if (localStorage.getItem('role') == 'student') {
@@ -32,14 +37,24 @@ class Schedule extends React.Component {
                 subgroup = sessionStorage.getItem('subgroup');
             }
         }
-
-        return this.props.schedule.map(item => {
-            if ((day_of_week === item.day_of_week) && ((subgroup == item.subgroup) || (item.subgroup == 0))) {
-                return (
-                    <section>
-                        <Lesson lesson={item} index={index}/>
-                    </section>
-                );
+        schedule = (this.props.schedule).sort(this.compareLesson);
+        return schedule.map(item => {
+            if (localStorage.getItem('role') == 'student') {
+                if ((day_of_week === item.day_of_week) && ((subgroup == item.subgroup) || (item.subgroup == 0))) {
+                    return (
+                        <section>
+                            <Lesson lesson={item} index={index}/>
+                        </section>
+                    );
+                }
+            } else {
+                if (day_of_week === item.day_of_week) {
+                    return (
+                        <section>
+                            <Lesson lesson={item} index={index}/>
+                        </section>
+                    );
+                }
             }
         });
 
