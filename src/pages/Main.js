@@ -1,4 +1,5 @@
 'use strict';
+
 import React from 'react';
 import {Page, Button} from 'react-onsenui';
 import {withRouter} from 'react-router';
@@ -37,8 +38,9 @@ class Main extends React.Component {
 
     render() {
         return (
-            <Page>
-                <section style={{textAlign: 'center'}}>
+            <Page background-image='url(./../images/fon-38805.jpg)' >
+                <div className='main'>
+                <section className='center'>
                     <Button style={{margin: '6px 40px 6px 40px', width: '60%'}} modifier='large--cta'
                             onClick={this.signIn}>Sign
                         In</Button>
@@ -48,6 +50,7 @@ class Main extends React.Component {
                             onClick={this.withoutRegistration}>Without
                         Registration</Button>
                 </section>
+                </div>
             </Page>
         );
     };

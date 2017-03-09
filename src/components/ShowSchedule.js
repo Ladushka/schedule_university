@@ -1,6 +1,5 @@
 'use strict';
 
-import './../../www/styles/week.css';
 import React from 'react';
 import {Button} from 'react-onsenui';
 import {withRouter} from 'react-router';

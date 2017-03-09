@@ -8,7 +8,7 @@ class NumberOfGroup extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            groupSelection: ''
+            groupSelection: 'Group number'
         };
         this.updateValue = this.updateValue.bind(this);
     };

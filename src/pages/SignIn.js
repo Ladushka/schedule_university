@@ -36,7 +36,7 @@ class SignIn extends React.Component {
 
     renderToolbar() {
         return (
-            <Toolbar>
+            <Toolbar position='absolute'>
                 <div className='center'>Sign In</div>
             </Toolbar>
         );
@@ -49,8 +49,8 @@ class SignIn extends React.Component {
     };
 
     render() {
-        return (<Page renderToolbar={this.renderToolbar.bind(this)}>
-            <section style={{textAlign: 'center'}}>
+        return (<Page position='relative' renderToolbar={this.renderToolbar.bind(this)}>
+            <section className='center'>
                 <p>
                     <Input
                         name="login"

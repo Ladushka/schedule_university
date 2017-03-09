@@ -1,3 +1,5 @@
+'use strict';
+
 import React from 'react';
 import {Page, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
 import SelectorDayOfWeek from  '../components/SelectorDayOfWeek';
@@ -5,6 +7,7 @@ import StudentInformation from  '../components/student/StudentInformation';
 import FullName from  '../components/FullName';
 import UserType from '../components/UserType';
 import ShowSchedule from '../components/ShowSchedule';
+import Back from '../components/Back';
 
 class Unregisted extends React.Component {
     constructor(props) {
@@ -56,6 +59,7 @@ class Unregisted extends React.Component {
                     <SelectorDayOfWeek onChange={this.handleDayChange}/>
                     <ShowSchedule request={this.state}/>
                 </section>
+                <Back/>
             </Page>
         );
     };

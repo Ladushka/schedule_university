@@ -1,7 +1,7 @@
 'use strict';
-import './../../www/styles/week.css';
-import React from 'react';
 
+import React from 'react';
+import './../../www/styles/week.css'
 const WEEK = require('../data/data');
 
 class SelectorDayOfWeek extends React.Component {
@@ -27,9 +27,9 @@ class SelectorDayOfWeek extends React.Component {
     renderButton() {
         return WEEK['week'].map(item => {
             return (
-                <div className="button-bar__item" key={item.name}>
+                <div className="button-bar__item_my" key={item.name}>
                     <input type="radio" name="segment-a" onChange={this.changeDay.bind(this, item.value)}/>
-                    <button className="button-bar__button">{item.name}</button>
+                    <button className="button-bar__button_my">{item.name}</button>
                 </div>
             );
         });
