@@ -30,7 +30,7 @@ class Lesson extends React.Component {
                             <div>
                                 <Icon className="plan-icon" icon="ion-android-person"/>
                                 {localStorage.getItem('role') === 'student' ?
-                                    this.props.lesson.lecturer.surname + ' ' + this.props.lesson.lecturer.name + ' ' + this.props.lesson.lecturer.patronymic
+                                    this.props.lesson.lecturerSurname + ' ' + this.props.lesson.lecturerName + ' ' + this.props.lesson.lecturerPatronymic
                                     :
                                     this.props.lesson.group.number + ', ' + this.props.lesson.group.faculty
                                 }
