@@ -3,9 +3,9 @@ import './../../../www/styles/schedule.css';
 import React from 'react';
 import {Page, Button, Toolbar, Input, List, Fab, Icon} from 'react-onsenui';
 import Lesson from './components/Lesson';
-import SelectorDayOfWeek from './../../components/SelectorDayOfWeek';
-import SignOut from './../../components/SignOut';
-import Back from './../../components/Back';
+import SelectorDayOfWeek from '../../components/general/SelectorDayOfWeek';
+import SignOut from '../../components/general/SignOut';
+import Back from '../../components/general/Back';
 
 
 class Schedule extends React.Component {

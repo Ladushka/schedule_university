@@ -3,7 +3,7 @@ import React from 'react';
 
 import StudentInformation from '../components/student/StudentInformation';
 import {Page} from 'react-onsenui';
-import FullName from '../components/FullName';
+import FullName from '../components/general/FullName';
 import AddStudent from '../components/student/AddStudent';
 
 class Student extends React.Component {

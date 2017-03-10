@@ -1,8 +1,8 @@
 'use strict';
 
 import React from 'react';
-import './../../www/styles/week.css'
-const WEEK = require('../data/data');
+import '../../../www/styles/week.css'
+const WEEK = require('../../data/data');
 
 class SelectorDayOfWeek extends React.Component {
     constructor(props) {

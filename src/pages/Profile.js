@@ -16,7 +16,7 @@ import {
     Tab,
     Button
 } from 'react-onsenui';
-import SignOut from './../components/SignOut';
+import SignOut from '../components/general/SignOut';
 
 class Profile extends React.Component {
     constructor(props) {

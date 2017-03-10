@@ -2,12 +2,12 @@
 
 import React from 'react';
 import {Page, Toolbar, Input, List, ListItem, ListHeader} from 'react-onsenui';
-import SelectorDayOfWeek from  '../components/SelectorDayOfWeek';
+import SelectorDayOfWeek from  '../components/general/SelectorDayOfWeek';
 import StudentInformation from  '../components/student/StudentInformation';
-import FullName from  '../components/FullName';
-import UserType from '../components/UserType';
+import FullName from  '../components/general/FullName';
+import UserType from '../components/general/UserType';
 import ShowSchedule from '../components/ShowSchedule';
-import Back from '../components/Back';
+import Back from '../components/general/Back';
 
 class Unregisted extends React.Component {
     constructor(props) {

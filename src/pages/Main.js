@@ -1,9 +1,9 @@
 'use strict';
 
 import React from 'react';
-import {Page, Button} from 'react-onsenui';
+import {Button} from 'react-onsenui';
 import {withRouter} from 'react-router';
-
+import strings from './../localization/Strings';
 class Main extends React.Component {
     constructor(props) {
         super(props);
@@ -35,23 +35,22 @@ class Main extends React.Component {
             pathname: '/withoutRegistration'
         });
     };
-
+//<div>{i18next.t('test_message')}</div>
     render() {
         return (
-            <Page background-image='url(./../images/fon-38805.jpg)' >
-                <div className='main'>
-                <section className='center'>
+            // <div className='main'>
+                <section /*className='center'*/>
                     <Button style={{margin: '6px 40px 6px 40px', width: '60%'}} modifier='large--cta'
-                            onClick={this.signIn}>Sign
-                        In</Button>
+                            onClick={this.signIn}>
+                        <div>{strings.SIGN_IN}</div>
+                        </Button>
                     <Button modifier='large--cta' style={{margin: '6px 40px 6px 40px', width: '60%'}}
                             onClick={this.signUp}>Sign Up</Button>
                     <Button modifier='large--cta' style={{margin: '6px 40px 6px 40px', width: '60%'}}
                             onClick={this.withoutRegistration}>Without
                         Registration</Button>
                 </section>
-                </div>
-            </Page>
+            // </div>
         );
     };
 }

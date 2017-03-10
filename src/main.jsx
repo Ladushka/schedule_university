@@ -10,7 +10,8 @@ import  './../node_modules/onsenui/js/onsenui.js';
 
 
 import App from './App';
-import Main from './pages/Main';
+//import Main from './pages/Main';
+import Main from './localization/Localization';
 import ScheduleContainer from './containers/ScheduleContainer';
 import SignUp from './pages/SignUp';
 import StudentForm from './pages/StudentForm';

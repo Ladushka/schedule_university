@@ -1,9 +1,9 @@
 'use strict';
 import React from 'react';
-import UserType from '../components/UserType';
+import UserType from '../components/general/UserType';
 import SdoId from '../components/SdoId';
 import Password from '../components/Password';
-import FullName from '../components/FullName';
+import FullName from '../components/general/FullName';
 import {Page} from 'react-onsenui';
 import AddUser from  '../components/AddUser';
 
