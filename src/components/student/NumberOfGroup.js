@@ -29,7 +29,7 @@ class NumberOfGroup extends React.Component {
                     options={this.props.options}
                     onChange={this.updateValue}
                     clearable={false}
-                    placeholder='Group number'
+                    placeholder='Номер группы'
                 />
             </div>
         );

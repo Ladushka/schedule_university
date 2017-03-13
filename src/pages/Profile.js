@@ -28,79 +28,74 @@ class Profile extends React.Component {
 
     render() {
         return (
-            <div>
-
-                <Page modifier="shop-details">
-                    <div className="card">
-                        {localStorage.getItem('role') === 'student' ? (
-                                <section>
-                                    <div
-                                        className="card-name">Student
-                                    </div>
-                                    < div className="card-desc"> {this.state.user.sdo}<br/></div>
-                                </section>
-                            ) : (
-                                <section>
-                                    <div
-                                        className="card-name">Lecturer
-                                    </div>
-                                    < div className="card-desc">{this.state.user.login}<br/></div>
-                                </section>
-                            )}
-
-                    </div>
-
-                    <List style={{borderTop: 'none'}}><ListItem style={{lineHeight: 1, padding: 0}}>
-                        <Row class="action">
-
-                            <Col class="action-col">
-                                <div className="action-icon"><Icon icon="ion-chatbubble"/></div>
-                                <div className="action-label">Messages</div>
-                            </Col>
-
-                            <Col class="action-col">
-                                <div className="action-icon">
-                                    {
-                                        localStorage.getItem('role') === 'student' ? (
-                                                <a href={`/schedule/${this.state.user.group.faculty}/${this.state.user.group.number}`}>
-                                                    <Icon icon="ion-calendar"/>
-                                                </a>
-                                            ) : (
-                                                <a href={`/schedule/${this.state.user.surname}`}>
-                                                    <Icon icon="ion-calendar"/>
-                                                </a>
-                                            )
-                                    }
+            <Page modifier="shop-details">
+                <div className="card">
+                    {localStorage.getItem('role') === 'student' ? (
+                            <section>
+                                <div
+                                    className="card-name">Студент
                                 </div>
-                                <div className="action-label">Schedule</div>
-                            </Col>
+                                <div className="card-desc"> {this.state.user.sdo}<br/></div>
+                            </section>
+                        ) : (
+                            <section>
+                                <div
+                                    className="card-name">Преподователь
+                                </div>
+                                <div className="card-desc">{this.state.user.login}<br/></div>
+                            </section>
+                        )}
+                </div>
+                <List style={{borderTop: 'none'}}><ListItem style={{lineHeight: 1, padding: 0}}>
+                    <Row class="action">
 
-                            <Col class="action-col">
-                                <div className="action-icon"><Icon icon="ion-compose"/></div>
-                                <div className="action-label">Edit Profile</div>
-                            </Col>
+                        <Col class="action-col">
+                            <div className="action-icon"><Icon icon="ion-chatbubble"/></div>
+                            <div className="action-label">Сообщения</div>
+                        </Col>
 
-                        </Row>
-                    </ListItem></List>
-
-                    <List style={{borderTop: 0}}>
-                        <ListItem modifier="chevron tappable">
-                            <div className="prop-desc">
-                                <Icon icon="ion-android-contact"/>
-                                {this.state.user.surname} {this.state.user.name}
+                        <Col class="action-col">
+                            <div className="action-icon">
+                                {
+                                    localStorage.getItem('role') === 'student' ? (
+                                            <a href={`/schedule/${this.state.user.group.faculty}/${this.state.user.group.number}`}>
+                                                <Icon icon="ion-calendar"/>
+                                            </a>
+                                        ) : (
+                                            <a href={`/schedule/${this.state.user.surname}`}>
+                                                <Icon icon="ion-calendar"/>
+                                            </a>
+                                        )
+                                }
                             </div>
-                        </ListItem>
+                            <div className="action-label">Расписание</div>
+                        </Col>
 
-                        <ListItem modifier="chevron tappable">
-                            <div className="prop-desc">
-                                <Icon icon="ion-university"/>
-                                {this.state.user.name}
-                            </div>
-                        </ListItem>
-                    </List>
-                    <SignOut/>
-                </Page>
-            </div>
+                        <Col class="action-col">
+                            <div className="action-icon"><Icon icon="ion-compose"/></div>
+                            <div className="action-label">Изменить профиль</div>
+                        </Col>
+
+                    </Row>
+                </ListItem></List>
+
+                <List style={{borderTop: 0}}>
+                    <ListItem modifier="chevron tappable">
+                        <div className="prop-desc">
+                            <Icon icon="ion-android-contact" style={{marginRight: '10px'}}/>
+                            {this.state.user.surname} {this.state.user.name}
+                        </div>
+                    </ListItem>
+
+                    <ListItem modifier="chevron tappable">
+                        <div className="prop-desc">
+                            <Icon icon="ion-university" style={{marginRight: '10px'}}/>
+                            {this.state.user.name}
+                        </div>
+                    </ListItem>
+                </List>
+                <SignOut/>
+            </Page>
         );
     };
 }

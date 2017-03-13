@@ -19,7 +19,7 @@ class Lesson extends React.Component {
                                 return this.props.lesson.number_of_lesson == lesson.number
                             })[0].time
                         }</div>
-                        <div className="plan-duration">1h 20min</div>
+                        <div className="plan-duration">1ч 20мин</div>
                     </Col>
                     <Col width="6px" class="plan-center">
 

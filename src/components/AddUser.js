@@ -27,7 +27,7 @@ class AddUser extends React.Component {
         return (
             <section>
                 <p>
-                    <Button onClick={this.handleSubmit}>Add User</Button>
+                    <Button onClick={this.handleSubmit}>Добавить</Button>
                 </p>
                 {
                     (this.state.onClick === true) ? (<UserService user={this.props.user}/>) : (null)

@@ -15,6 +15,7 @@
     "json-loader": "^0.5.4",
     "react-bootstrap": "^0.30.7",
     "react-bootstrap-typeahead": "^1.0.0-beta5",
+    "react-intl": "^2.2.3",
     "react-localization": "0.0.13",
     "react-redux": "^5.0.3",
     "react-select": "^1.0.0-rc.3",

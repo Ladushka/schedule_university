@@ -28,7 +28,7 @@ class Password extends React.Component {
                     value={this.state.password}
                     onChange={this.handleInputChange}
                     modifier='underbar'
-                    placeholder='Password'
+                    placeholder='Пароль'
                 />
             </p>
         );

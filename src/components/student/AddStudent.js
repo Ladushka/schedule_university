@@ -37,7 +37,7 @@ class AddStudent extends React.Component {
         return (
             <section>
                 <p>
-                    <Button className='button-request' onClick={this.handleSubmit}>Save</Button>
+                    <Button className='button-request' onClick={this.handleSubmit}>Сохранить</Button>
                 </p>
                 {
                     this.state.onClick == true ? <StudentService student={this.state}/> : (null)

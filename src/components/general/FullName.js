@@ -30,7 +30,7 @@ class FullName extends React.Component {
                         value={this.state.surname}
                         onChange={this.handleInputChange}
                         modifier='underbar'
-                        placeholder='Last Name'/>
+                        placeholder='Фамилия'/>
                 </p>
                 <p>
                     <Input
@@ -39,7 +39,7 @@ class FullName extends React.Component {
                         value={this.state.name}
                         onChange={this.handleInputChange}
                         modifier='underbar'
-                        placeholder='First Name'/>
+                        placeholder='Имя'/>
                 </p>
                 <p>
                     <Input
@@ -48,7 +48,7 @@ class FullName extends React.Component {
                         value={this.state.patronymic}
                         onChange={this.handleInputChange}
                         modifier='underbar'
-                        placeholder='Patronymic'/>
+                        placeholder='Отчество'/>
                 </p>
             </section>
         );

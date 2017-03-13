@@ -33,7 +33,7 @@ class Faculties extends React.Component {
                     options={FACULTIES['faculties']}
                     onChange={this.updateValue}
                     clearable={false}
-                    placeholder='Faculty'
+                    placeholder='Факультет'
                 />
             </div>
         );

@@ -10,15 +10,13 @@ import  './../node_modules/onsenui/js/onsenui.js';
 
 
 import App from './App';
-//import Main from './pages/Main';
-import Main from './localization/Localization';
+import Main from './pages/Main';
 import ScheduleContainer from './containers/ScheduleContainer';
 import SignUp from './pages/SignUp';
 import StudentForm from './pages/StudentForm';
 import SignIn from './pages/SignIn';
 import WithoutRegistration from './pages/WithoutRegistration';
 import ProfileContainer from './pages/../containers/ProfileContainer';
-import './../www/styles/general.css';
 
 ReactDOM.render((
         <div>
@@ -32,9 +30,7 @@ ReactDOM.render((
                 <Route path="/signUp" component={SignUp}/>
                 <Route path="/signIn" component={SignIn}/>
                 <Route path='/signIn/:login' component={ProfileContainer}/>
-
                 <Route path="/student/:sdoId" component={StudentForm}/>
-
             </Router>
         </div>
     ),

@@ -24,7 +24,7 @@ class ShowSchedule extends React.Component {
     render() {
         return (
             <p className="button-request">
-                <Button onClick={this.showSchedule}>Show Schedule</Button>
+                <Button onClick={this.showSchedule}>Показать расписание</Button>
             </p>
         );
     };

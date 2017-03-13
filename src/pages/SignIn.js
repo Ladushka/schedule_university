@@ -50,7 +50,7 @@ class SignIn extends React.Component {
 
     render() {
         return (<Page position='relative' renderToolbar={this.renderToolbar.bind(this)}>
-            <section className='center'>
+            <section style={{margin :0, textAlign: 'center', position: 'absolute', transform: 'translate(-50%, -50%)', top: '50%',left: '50%'}}>
                 <p>
                     <Input
                         name="login"
@@ -58,11 +58,11 @@ class SignIn extends React.Component {
                         onChange={this.handleChange}
                         modifier='underbar'
                         float
-                        placeholder='Login / Sdo_id'/>
+                        placeholder='Логин / Sdo Id'/>
                 </p>
                 <Password onChange={this.handlePasswordChange}/>
                 <p>
-                    <Button onClick={this.handleClick}>Sign in</Button>
+                    <Button onClick={this.handleClick}>Войти</Button>
                 </p>
                 {this.state.onClick === true ?
                     (<LogInContainer data={this.state}/>) : (null)

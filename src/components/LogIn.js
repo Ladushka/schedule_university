@@ -33,11 +33,11 @@ class LogIn extends React.Component {
                 isCancelable={false}>
                 {
                     this.props.response.logged_in === true ? (
-                            <div className='alert-dialog-title'>All Ok!</div>
+                            <div className='alert-dialog-title'>Вы успешно вошли!</div>
                         ) : (
                             <div>
-                                <div className='alert-dialog-title'>Warning!</div>
-                                <div className='alert-dialog-content'>Your {this.props.response.exception} is wrong!
+                                <div className='alert-dialog-title'>Внимание!</div>
+                                <div className='alert-dialog-content'>Твой {this.props.response.exception} введён не верно!
                                 </div>
                             </div>
                         )

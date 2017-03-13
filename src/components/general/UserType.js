@@ -7,10 +7,10 @@ class UserType extends React.Component {
 
         this.state = {
             user: [
-                'student',
-                'lecturer'
+                'студент',
+                'преподователь'
             ],
-            selectedItem: 'student'
+            selectedItem: 'студент'
         };
 
         this.renderRadioRow = this.renderRadioRow.bind(this);
@@ -19,7 +19,8 @@ class UserType extends React.Component {
 
     handleItemChange(item) {
         this.setState({selectedItem: item});
-        this.props.onChange(item);
+        let userType = item === 'студент' ? 'student' : 'lecturer';
+        this.props.onChange(userType);
     };
 
     renderRadioRow(row) {
@@ -44,7 +45,7 @@ class UserType extends React.Component {
         return (
             <List
                 dataSource={this.state.user}
-                renderHeader={() => <ListHeader>Who are you?</ListHeader>}
+                renderHeader={() => <ListHeader>Тип пользователя</ListHeader>}
                 renderRow={this.renderRadioRow}/>
         );
     };

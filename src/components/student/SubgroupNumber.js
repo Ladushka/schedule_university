@@ -29,7 +29,7 @@ class SubgroupNumber extends React.Component {
                     options={SUBGROUPS['subgroups']}
                     onChange={this.updateValue}
                     clearable={false}
-                    placeholder='Subgroup number'
+                    placeholder='Подгруппа'
                 />
             </div>
         );

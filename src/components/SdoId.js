@@ -30,7 +30,7 @@ class SdoId extends React.Component {
                     value={this.props.name === 'student' ? this.props.sdo_id : this.props.login}
                     onChange={this.handleInputChange}
                     modifier='underbar'
-                    placeholder={this.props.name === 'student' ? 'Sdo Id' : 'Login'}
+                    placeholder={this.props.name === 'student' ? 'Sdo Id' : 'Логин'}
                 />
             </p>
         );
