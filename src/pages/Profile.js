@@ -26,6 +26,26 @@ class Profile extends React.Component {
         };
     };
 
+    componentDidMount() {
+        let socket = new WebSocket("ws://localhost:8080/bla");
+        socket.onopen = function () {
+            socket.send("13");
+            console.log("получилось");
+        };
+
+        socket.onerror = function (event) {
+            console.log(event.message);
+        };
+
+        socket.onclose = function (event) {
+            console.log(event.code)
+        };
+
+        socket.onmessage = function (event) {
+            console.log(event.data);
+        };
+    }
+
     render() {
         return (
             <Page modifier="shop-details">

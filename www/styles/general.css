@@ -16,11 +16,18 @@
     width: 60%;
 }
 
-.center{
+.navigation-bar--material__center::after{
     margin: 0;
     text-align: center;
     /*position: absolute;*/
     /*transform: translate(-50%, -50%);*/
     /*top: 50%;*/
     /*left: 50%;*/
+}
+
+.center{
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
 }

@@ -24,7 +24,7 @@ class Unregisted extends React.Component {
     renderToolbar() {
         return (
             <Toolbar>
-                <div className='center'>Schedule without login</div>
+                <div>Без Регистрации</div>
             </Toolbar>
         );
     };
@@ -45,21 +45,32 @@ class Unregisted extends React.Component {
         })
     };
 
+    componentDidMount() {
+        let socket = new WebSocket("ws://localhost:8080/bla");
+        socket.onopen = function () {
+            socket.send("anything");
+            console.log("получилось");
+        };
+    }
+
     render() {
         sessionStorage.setItem('role', this.state.selectedItem);
+
         return (
             <Page renderToolbar={this.renderToolbar}>
-                <UserType onChange={this.userTypeChange}/>
-                <section style={{textAlign: 'center'}}>
-                    {this.state.selectedItem == 'student' ? (
-                            <StudentInformation onChange={this.handleChange}/>
-                        ) : (
-                            <FullName onChange={this.handleChange}/>
-                        )}
-                    <SelectorDayOfWeek onChange={this.handleDayChange}/>
-                    <ShowSchedule request={this.state}/>
-                </section>
-                <Back/>
+                <div class="center">
+                    <UserType onChange={this.userTypeChange}/>
+                    <section style={{textAlign: 'center'}}>
+                        {this.state.selectedItem == 'student' ? (
+                                <StudentInformation onChange={this.handleChange}/>
+                            ) : (
+                                <FullName onChange={this.handleChange}/>
+                            )}
+                        <SelectorDayOfWeek onChange={this.handleDayChange}/>
+                        <ShowSchedule request={this.state}/>
+                    </section>
+                    <Back/>
+                </div>
             </Page>
         );
     };

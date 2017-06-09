@@ -21,7 +21,11 @@ import ProfileContainer from './pages/../containers/ProfileContainer';
 ReactDOM.render((
         <div>
             <Router history={browserHistory}>
-                <Route path="/" component={Main}/>
+                {
+                    JSON.parse(localStorage.getItem('logged-in')) ?
+                        <Route path='/' component={ProfileContainer}/> :
+                        <Route path="/" component={Main}/>
+                }
                 <Route path="/schedule/:facultyId/:groupId" component={ScheduleContainer}/>
                 <Route path="/schedule/:surname" component={ScheduleContainer}/>
                 <Route path="/scheduleContainer" component={ScheduleContainer}/>
