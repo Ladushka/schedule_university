@@ -10,12 +10,24 @@ class ProfileContainer extends React.Component {
 
         this.state = {
             isLoading: false,
-            user: ''
+            user: JSON.parse(localStorage.getItem("user"))
         };
+        console.log(props);
     };
 
     componentDidMount() {
-        let url = localStorage.getItem('role') == 'student' ? 'http://localhost:8080/students/sdo/' + this.props.routeParams.login : 'http://localhost:8080/lecturers/login/' + this.props.routeParams.login;
+        var sdo;
+        var login;
+
+        if(this.state.user){
+            sdo = this.state.user.sdo;
+            login = this.state.user.login;
+        }else {
+            sdo = this.props.routeParams.login;
+            login = this.props.routeParams.login;
+        }
+
+        let url = localStorage.getItem('role') == 'student' ? 'http://localhost:8080/students/sdo/' + sdo : 'http://localhost:8080/lecturers/login/' + login;
         fetch(url)
             .then(response => {
                 return response.text();

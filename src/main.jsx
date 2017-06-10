@@ -22,7 +22,7 @@ ReactDOM.render((
         <div>
             <Router history={browserHistory}>
                 {
-                    JSON.parse(localStorage.getItem('logged-in')) ?
+                    localStorage.getItem('logged-in') == 'true' ?
                         <Route path='/' component={ProfileContainer}/> :
                         <Route path="/" component={Main}/>
                 }

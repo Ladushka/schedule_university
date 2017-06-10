@@ -40,7 +40,7 @@ class LectureService extends React.Component {
     }
 
     handleClick() {
-        localStorage.setItem('user', this.state.lecturer);
+        localStorage.setItem('user', JSON.stringify(this.state.lecturer));
         localStorage.setItem('role', 'lecturer');
         localStorage.setItem('logged-in', true);
         this.props.router.push({

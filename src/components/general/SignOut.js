@@ -12,6 +12,9 @@ class SignOut extends React.Component {
     };
 
     signOut() {
+        localStorage.removeItem("user");
+        localStorage.removeItem("role");
+        localStorage.setItem("logged-in", "false");
         this.props.router.push({
             pathname: '/'
         });

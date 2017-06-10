@@ -19,17 +19,27 @@ import {
 import SignOut from '../components/general/SignOut';
 
 class Profile extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
-            user: JSON.parse(localStorage.getItem('user'))
+            user: JSON.parse(localStorage.getItem('user')),
+            cls: ''
         };
+        console.log(this.state.user)
     };
 
-    componentDidMount() {
-        let socket = new WebSocket("ws://localhost:8080/bla");
+    componentWillMount() {
+        var socket = new WebSocket("ws://localhost:8080/bla");
+        console.log(this.state.user.sdo);
+        var self = this;
+
         socket.onopen = function () {
-            socket.send("13");
+            if (localStorage.getItem('role') == 'student') {
+                socket.send(self.state.user.sdo);
+            } else {
+                socket.send(self.state.user.login);
+            }
             console.log("получилось");
         };
 
@@ -43,10 +53,13 @@ class Profile extends React.Component {
 
         socket.onmessage = function (event) {
             console.log(event.data);
+            localStorage.setItem('changes', event.data);
         };
     }
 
     render() {
+        console.log('test');
+        // var cls = 'cool';
         return (
             <Page modifier="shop-details">
                 <div className="card">
@@ -70,8 +83,13 @@ class Profile extends React.Component {
                     <Row class="action">
 
                         <Col class="action-col">
-                            <div className="action-icon"><Icon icon="ion-chatbubble"/></div>
-                            <div className="action-label">Сообщения</div>
+                            <div className="action-icon">
+                                {localStorage.getItem('changes') ?
+                                    <Icon className={this.state.cls} icon="ion-chatbubble"/> :
+                                    <Icon className='cool' icon="ion-chatbubble"/>
+                                }
+                            </div>
+                            <div className="action-label">Обновления</div>
                         </Col>
 
                         <Col class="action-col">
