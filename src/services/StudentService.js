@@ -30,11 +30,11 @@ class StudentService extends React.Component {
             })
             .catch(function (error) {
                 console.log('Request failed', error)
-            });
+            });да
     }
 
     handleClick() {
-        localStorage.setItem('user', this.state);
+        localStorage.setItem('user', JSON.stringify(this.state));
         localStorage.setItem('role', 'student');
         localStorage.setItem('logged-in', true);
         this.props.router.push({
